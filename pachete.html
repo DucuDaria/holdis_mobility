@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pachete de Sprijin (Silver, Gold, Platinum) | HOLDIS MOBILITY</title>
+    <meta name="description" content="Alege nivelul de sprijin potrivit: Pachetul Silver, Gold sau Platinum. Evaluare gratuită la domiciliu și montaj inclus.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER / NAVIGARE -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand-logo">
+                <img src="logo.png" alt="Emblemă HOLDIS MOBILITY" class="logo-img" onerror="this.src='https://placehold.co/96x96/2B4C59/FFFFFF?text=HM'">
+                <div class="logo-text">
+                    <span class="logo-main">HOLDIS</span>
+                    <span class="logo-sub">MOBILITY</span>
+                </div>
+            </a>
+
+            <nav class="main-nav">
+                <a href="index.html">Acasă</a>
+                <a href="pachete.html" class="active">Pachete de sprijin</a>
+                <a href="comparatie.html">Tabel comparativ</a>
+                <a href="configurator.html">Pachet personalizat</a>
+            </nav>
+
+            <div class="header-actions">
+                <button type="button" class="btn-eval-header" onclick="openEvalModal()">
+                    Solicită Evaluare Gratuită
+                </button>
+                <a href="mailto:contact@holdismobility.ro?subject=Solicitare%20informatii%20HOLDIS%20MOBILITY" class="admin-mail-pill">
+                    ✉ Contactează administratorul
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTINUT PAGINA PACHETE -->
+    <main class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ALEGE NIVELUL DE SPRIJIN</span>
+                <h1>Trei pachete. Totul inclus, pas cu pas.</h1>
+                <p>
+                    <strong>Gold include Silver. Platinum include Gold și Silver.</strong><br>
+                    Venim acasă, evaluăm gratuit locuința din perspectiva siguranței în mișcare, aducem toate produsele, le montăm și facem curățenie la final.
+                </p>
+            </div>
+
+            <div class="packages-grid">
+                
+                <!-- PACHETUL SILVER (Cu poza din Pagina 2 a PDF-ului) -->
+                <article class="package-card">
+                    <div class="package-img-wrapper">
+                        <!-- PLACEHOLDER POZA SILVER: Pune in folder imaginea "pachet-silver.jpg" (poza cu baia din PDF) -->
+                        <img src="pachet-silver.jpg" alt="Pachet Silver - Baie sigură cu mânere de sprijin, taburet de duș și cadru toaletă" class="package-img" onerror="this.src='https://placehold.co/600x380/E8F0EB/2B4C59?text=Poza+PDF+Pag+2:+pachet-silver.jpg'">
+                    </div>
+                    <div class="package-header">
+                        <span class="package-tier">PACHET SILVER</span>
+                        <h2>Baie sigură</h2>
+                        <p class="package-tagline">Sprijin practic, în fiecare zi.</p>
+                    </div>
+                    <div class="package-price">
+                        <span class="price-label">PREȚ PENTRU PACHETUL COMPLET</span>
+                        <span class="price-value">de la 1.000 lei</span>
+                        <span class="price-meta">✓ Evaluare GRATUITĂ • ✓ Montaj și curățenie incluse</span>
+                    </div>
+                    <div class="package-body">
+                        <h4>Ce include pachetul Silver:</h4>
+                        <ul class="check-list">
+                            <li>2 mânere de sprijin în baie</li>
+                            <li>Taburet de duș</li>
+                            <li>Cadru de sprijin pentru toaletă</li>
+                            <li>Covoraș antiderapant inclus</li>
+                        </ul>
+                    </div>
+                    <div class="package-footer">
+                        <a href="configurator.html?pachet=Silver" class="btn-select-pkg">
+                            Alege pachetul Silver
+                        </a>
+                    </div>
+                </article>
+
+                <!-- PACHETUL GOLD -->
+                <article class="package-card featured">
+                    <div class="featured-ribbon">Recomandat pentru interior</div>
+                    <div class="package-img-wrapper">
+                        <!-- PLACEHOLDER POZA GOLD: Pune in folder imaginea "pachet-gold.jpg" -->
+                        <img src="pachet-gold.jpg" alt="Pachet Gold - Sprijin în locuință, hol și lângă pat" class="package-img" onerror="this.src='https://placehold.co/600x380/2B4C59/FFFFFF?text=Poza+Interior+Casa:+pachet-gold.jpg'">
+                    </div>
+                    <div class="package-header">
+                        <span class="package-tier">PACHET GOLD</span>
+                        <h2>Sprijin în locuință</h2>
+                        <p class="package-tagline">Baia sigură, plus sprijin pe traseele zilnice.</p>
+                    </div>
+                    <div class="package-price">
+                        <span class="price-label">PREȚ PENTRU PACHETUL COMPLET</span>
+                        <span class="price-value">de la 1.500 lei</span>
+                        <span class="price-meta">✓ Evaluare GRATUITĂ • ✓ Montaj și curățenie incluse</span>
+                    </div>
+                    <div class="package-body">
+                        <div class="includes-box">
+                            <strong>Include integral pachetul SILVER</strong>
+                            <span>Toate produsele și serviciile din Silver sunt incluse în prețul Gold.</span>
+                        </div>
+                        <h4>În plus față de Silver:</h4>
+                        <ul class="check-list">
+                            <li>Mână curentă de până la 1,5 m</li>
+                            <li>Mâner de sprijin lângă pat</li>
+                            <li>Organizarea cablurilor existente</li>
+                            <li>Reorganizarea mobilierului</li>
+                        </ul>
+                    </div>
+                    <div class="package-footer">
+                        <a href="configurator.html?pachet=Gold" class="btn-select-pkg">
+                            Alege pachetul Gold
+                        </a>
+                    </div>
+                </article>
+
+                <!-- PACHETUL PLATINUM (Cu poza din Pagina 4 a PDF-ului) -->
+                <article class="package-card">
+                    <div class="package-img-wrapper">
+                        <!-- PLACEHOLDER POZA PLATINUM: Pune in folder imaginea "pachet-platinum.jpg" (poza cu balustrada de inox din PDF) -->
+                        <img src="pachet-platinum.jpg" alt="Pachet Platinum - Balustradă din inox pentru scara exterioară" class="package-img" onerror="this.src='https://placehold.co/600x380/E8F0EB/2B4C59?text=Poza+PDF+Pag+4:+pachet-platinum.jpg'">
+                    </div>
+                    <div class="package-header">
+                        <span class="package-tier">PACHET PLATINUM</span>
+                        <h2>Sprijin acasă și afară</h2>
+                        <p class="package-tagline">Sprijinul din locuință continuă la scara exterioară.</p>
+                    </div>
+                    <div class="package-price">
+                        <span class="price-label">PREȚ PENTRU PACHETUL COMPLET</span>
+                        <span class="price-value">de la 2.550 lei</span>
+                        <span class="price-meta">✓ Evaluare GRATUITĂ • ✓ Montaj și curățenie incluse</span>
+                    </div>
+                    <div class="package-body">
+                        <div class="includes-box">
+                            <strong>Include pachetele GOLD și SILVER</strong>
+                            <span>Toată baia, sprijinul pe hol și lângă pat, plus organizarea spațiului.</span>
+                        </div>
+                        <h4>În plus față de Gold:</h4>
+                        <ul class="check-list">
+                            <li>
+                                <strong>Balustradă din inox de până la 2 m*</strong><br>
+                                <small>*Montată pe o singură latură a scării exterioare.</small>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="package-footer">
+                        <a href="configurator.html?pachet=Platinum" class="btn-select-pkg">
+                            Alege pachetul Platinum
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <p class="table-note" style="margin-top: 32px;">
+                *Imaginile sunt ilustrative. Prețurile sunt de pornire pentru pachetul complet. Configurația și oferta finală se confirmă după evaluarea gratuită a locuinței.
+            </p>
+
+            <!-- Buton catre tabel sau evaluare -->
+            <div class="page-bottom-actions">
+                <button type="button" class="btn-primary btn-large" onclick="openEvalModal()">
+                    Solicită Evaluare Gratuită acum
+                </button>
+                <a href="comparatie.html" class="btn-secondary btn-large">
+                    Vezi tabelul comparativ detaliat →
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL EVALUARE GRATUITA -->
+    <div id="evalModal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-box" role="dialog" aria-labelledby="modalTitle">
+            <button type="button" class="modal-close" onclick="closeEvalModal()" aria-label="Închide">&times;</button>
+            <div id="modalFormContent">
+                <span class="badge-kineto">EVALUARE GRATUITĂ LA DOMICILIU</span>
+                <h3 id="modalTitle">Solicită Evaluare Gratuită</h3>
+                <p class="modal-desc">
+                    Completează numele și numărul tău de telefon. <strong>Vei fi contactat în cel mai scurt timp de către personalul nostru</strong> pentru a stabili detaliile vizitei gratuite.
+                </p>
+                <form id="quickEvalForm">
+                    <div class="input-field">
+                        <label for="evalNume">Numele și prenumele tău *</label>
+                        <input type="text" id="evalNume" required placeholder="Ex: Maria Ionescu">
+                    </div>
+                    <div class="input-field">
+                        <label for="evalTelefon">Numărul tău de telefon *</label>
+                        <input type="tel" id="evalTelefon" required placeholder="Ex: 0722 000 000">
+                    </div>
+                    <div class="gdpr-mini">
+                        <label class="checkbox-item">
+                            <input type="checkbox" required>
+                            <span>Sunt de acord să fiu contactat telefonic conform <a href="legal.html#gdpr" target="_blank">Politicii GDPR</a>.</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">Trimite solicitarea acum</button>
+                </form>
+            </div>
+            <div id="modalSuccessMessage" class="modal-success" style="display: none;">
+                <div class="success-icon">✓</div>
+                <h3>Solicitarea ta este pregătită!</h3>
+                <p>Am deschis aplicația ta de email pentru a expedia numărul de telefon către echipa HOLDIS MOBILITY. <strong>Vei fi contactat în cel mai scurt timp de către personalul nostru!</strong></p>
+                <button type="button" class="btn-secondary" onclick="closeEvalModal()">Închide fereastra</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="brand-logo footer-brand">
+                        <img src="logo.png" alt="Logo" class="logo-img-footer" onerror="this.src='https://placehold.co/80x80/FFFFFF/2B4C59?text=HM'">
+                        <div class="logo-text">
+                            <span class="logo-main">HOLDIS</span>
+                            <span class="logo-sub">MOBILITY</span>
+                        </div>
+                    </div>
+                    <p>Evaluare gratuită realizată de personal cu experiență în kinetoterapie, furnizare completă de produse și montaj fără griji.</p>
+                    <p class="footer-admin-link">
+                        <a href="mailto:contact@holdismobility.ro" class="admin-mail-pill footer-pill">✉ contact@holdismobility.ro</a>
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Date identificare societate</h4>
+                    <ul class="legal-list">
+                        <li><strong>Denumire:</strong> SC HOLDIS MOBILITY SRL</li>
+                        <li><strong>CUI / CIF:</strong> RO12345678</li>
+                        <li><strong>Nr. Reg. Com. (ONRC):</strong> J40/1234/2026</li>
+                        <li><strong>Sediu social:</strong> Str. Exemplului Nr. 10, Localitate, Județ</li>
+                        <li><strong>Capital social:</strong> 200 LEI</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Informații legale & ANPC</h4>
+                    <ul class="footer-links">
+                        <li><a href="legal.html#termeni">Termeni și Condiții</a></li>
+                        <li><a href="legal.html#gdpr">Politica de Confidențialitate (GDPR)</a></li>
+                        <li><a href="legal.html#cookies">Politica de Cookies</a></li>
+                        <li><a href="https://anpc.ro/" target="_blank" rel="noopener noreferrer">ANPC - Protecția Consumatorilor</a></li>
+                        <li><a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer">ANPC - SAL</a></li>
+                        <li><a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">Platforma Europeană SOL</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span class="currentYear"></span> HOLDIS MOBILITY. Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

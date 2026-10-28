@@ -1,20 +1,72 @@
 // ==========================================================================
-// CONFIGURARE ADRESA EMAIL ADMINISTRATOR
-// Schimba adresa de mai jos cu adresa ta reala de email!
+// ADRESA DE EMAIL A ADMINISTRATORULUI (Schimba cu adresa ta reala!)
 // ==========================================================================
 const ADMIN_EMAIL = "contact@holdismobility.ro";
 
-// Seteaza anul curent automat in subsolul paginii (Footer)
-const yearSpan = document.getElementById("currentYear");
-if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
+// 1. Actualizeaza anul curent in toate subsolurile paginilor
+document.querySelectorAll(".currentYear").forEach(el => {
+    el.textContent = new Date().getFullYear();
+});
+
+// 2. Deschiderea si inchiderea ferestrei "Solicita Evaluare Gratuita"
+function openEvalModal() {
+    const modal = document.getElementById("evalModal");
+    if (modal) {
+        document.getElementById("modalFormContent").style.display = "block";
+        document.getElementById("modalSuccessMessage").style.display = "none";
+        modal.classList.add("open");
+    }
 }
 
-// Functie care preselecteaza pachetul si elementele sale cand utilizatorul apasa pe un card
-function preselectPackage(packageName) {
+function closeEvalModal() {
+    const modal = document.getElementById("evalModal");
+    if (modal) {
+        modal.classList.remove("open");
+    }
+}
+
+// Inchide fereastra daca utilizatorul da click pe fundalul intunecat
+window.addEventListener("click", function (event) {
+    const modal = document.getElementById("evalModal");
+    if (event.target === modal) {
+        closeEvalModal();
+    }
+});
+
+// 3. Trimiterea formularului rapid "Solicita Evaluare Gratuita" (Nume + Telefon)
+const quickEvalForm = document.getElementById("quickEvalForm");
+if (quickEvalForm) {
+    quickEvalForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const nume = document.getElementById("evalNume").value.trim();
+        const telefon = document.getElementById("evalTelefon").value.trim();
+
+        const subject = `URGENT: Solicitare Evaluare Gratuită - ${nume} (${telefon})`;
+        const body = 
+`Bună ziua,
+
+O persoană a apăsat pe butonul „SOLICITĂ EVALUARE GRATUITĂ” de pe site-ul HOLDIS MOBILITY și așteaptă să fie contactată telefonic în cel mai scurt timp:
+
+• Nume: ${nume}
+• Număr de telefon: ${telefon}
+
+(Mesaj generat automat din formularul de Evaluare Gratuită)`;
+
+        // Afisam mesajul ca va fi contactat in cel mai scurt timp de catre personal
+        document.getElementById("modalFormContent").style.display = "none";
+        document.getElementById("modalSuccessMessage").style.display = "block";
+
+        // Trimitem catre adresa de mail a administratorului
+        window.location.href = `mailto:${ADMIN_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+}
+
+// 4. Logica pentru pagina separata "configurator.html"
+function applyPackageItems(packageName) {
     const checkboxes = document.querySelectorAll('input[name="elemente"]');
-    
-    // Debifam tot mai intai
+    if (!checkboxes.length) return;
+
     checkboxes.forEach(cb => cb.checked = false);
 
     const silverItems = [
@@ -40,13 +92,16 @@ function preselectPackage(packageName) {
     let itemsToSelect = [];
 
     if (packageName === "Silver") {
-        document.getElementById("radio-silver").checked = true;
+        const r = document.getElementById("radio-silver");
+        if (r) r.checked = true;
         itemsToSelect = silverItems;
     } else if (packageName === "Gold") {
-        document.getElementById("radio-gold").checked = true;
+        const r = document.getElementById("radio-gold");
+        if (r) r.checked = true;
         itemsToSelect = goldItems;
     } else if (packageName === "Platinum") {
-        document.getElementById("radio-platinum").checked = true;
+        const r = document.getElementById("radio-platinum");
+        if (r) r.checked = true;
         itemsToSelect = platinumItems;
     }
 
@@ -55,44 +110,44 @@ function preselectPackage(packageName) {
             cb.checked = true;
         }
     });
-
-    // Derulam lin pagina pana la formularul de configurare
-    document.getElementById("configurator").scrollIntoView({ behavior: "smooth" });
 }
 
-// Gestionarea trimiterii formularului pe email
-const form = document.getElementById("customPackageForm");
+// Daca utilizatorul vine din pagina Pachete sau Tabel (ex: configurator.html?pachet=Gold), bifam automat pachetul!
+window.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    const chosenPkg = params.get("pachet");
+    if (chosenPkg) {
+        applyPackageItems(chosenPkg);
+    }
+});
 
-if (form) {
-    form.addEventListener("submit", function (event) {
+// 5. Trimiterea formularului detaliat din "configurator.html"
+const customForm = document.getElementById("customPackageForm");
+if (customForm) {
+    customForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        // Preluam pachetul de baza selectat
         const pachetBaza = document.querySelector('input[name="pachet_baza"]:checked').value;
-
-        // Preluam toate elementele bifate
         const checkedBoxes = document.querySelectorAll('input[name="elemente"]:checked');
+        
         let elementeSelectate = [];
         checkedBoxes.forEach(box => elementeSelectate.push("- " + box.value));
 
         const listaElementeText = elementeSelectate.length > 0 
             ? elementeSelectate.join("\n") 
-            : "- Niciun element individual bifat (se dorește consiliere la evaluare)";
+            : "- Niciun produs individual bifat (se dorește recomandarea specialistului la evaluare)";
 
-        // Preluam datele de contact
         const nume = document.getElementById("nume").value.trim();
         const telefon = document.getElementById("telefon").value.trim();
         const localitate = document.getElementById("localitate").value.trim();
         const emailClient = document.getElementById("email_client").value.trim() || "Nespecificat";
         const mesaj = document.getElementById("mesaj").value.trim() || "Fără observații suplimentare.";
 
-        // Construim subiectul si continutul emailului
-        const subject = `Solicitare Evaluare & Pachet HOLDIS MOBILITY - ${nume} (${telefon})`;
-        
+        const subject = `Configurație Pachet & Evaluare HOLDIS MOBILITY - ${nume} (${telefon})`;
         const body = 
 `Bună ziua,
 
-Un vizitator a configurat un pachet pe site-ul HOLDIS MOBILITY și solicită o evaluare gratuită:
+Un client a configurat un pachet pe site-ul HOLDIS MOBILITY și așteaptă să fie contactat în cel mai scurt timp:
 
 =========================================
 DATE DE CONTACT CLIENT:
@@ -105,19 +160,20 @@ DATE DE CONTACT CLIENT:
 =========================================
 CONFIGURAȚIA ALEASĂ:
 =========================================
-• Pachet de pornire: ${pachetBaza}
+• Pachet de bază: ${pachetBaza}
 
-Elemente selectate:
+Produse și servicii bifate:
 ${listaElementeText}
 
 =========================================
-MESAJ / DETALII SUPLIMENTARE:
+DETALII SUPLIMENTARE:
 =========================================
 ${mesaj}
 `;
 
-        // Deschidem clientul de email cu toate campurile completate automat
-        const mailtoUrl = `mailto:${ADMIN_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.location.href = mailtoUrl;
+        const banner = document.getElementById("configSuccessBanner");
+        if (banner) banner.style.display = "block";
+
+        window.location.href = `mailto:${ADMIN_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
 }

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurează Pachet Personalizat | HOLDIS MOBILITY</title>
+    <meta name="description" content="Alege produsele și serviciile de sprijin potrivite familiei tale și programează evaluarea gratuită la domiciliu.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER / NAVIGARE -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand-logo">
+                <img src="logo.png" alt="Emblemă HOLDIS MOBILITY" class="logo-img" onerror="this.src='https://placehold.co/96x96/2B4C59/FFFFFF?text=HM'">
+                <div class="logo-text">
+                    <span class="logo-main">HOLDIS</span>
+                    <span class="logo-sub">MOBILITY</span>
+                </div>
+            </a>
+
+            <nav class="main-nav">
+                <a href="index.html">Acasă</a>
+                <a href="pachete.html">Pachete de sprijin</a>
+                <a href="comparatie.html">Tabel comparativ</a>
+                <a href="configurator.html" class="active">Pachet personalizat</a>
+            </nav>
+
+            <div class="header-actions">
+                <button type="button" class="btn-eval-header" onclick="openEvalModal()">
+                    Solicită Evaluare Gratuită
+                </button>
+                <a href="mailto:contact@holdismobility.ro?subject=Solicitare%20informatii%20HOLDIS%20MOBILITY" class="admin-mail-pill">
+                    ✉ Contactează administratorul
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTINUT CONFIGURATOR -->
+    <main class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FĂRĂ GRIJI, ADAPTAT NEVOILOR TALE</span>
+                <h1>Configurează propriul pachet de sprijin</h1>
+                <p>
+                    Bifează mai jos un pachet de bază sau exact produsele care te interesează. La vizita de evaluare gratuită, specialistul nostru cu experiență în kinetoterapie te va ajuta să confirme configurația ideală.
+                </p>
+            </div>
+
+            <div class="form-wrapper">
+                <form id="customPackageForm">
+                    
+                    <fieldset class="form-group-box">
+                        <legend>1. Alege punctul de plecare</legend>
+                        <div class="radio-cards">
+                            <label class="radio-card">
+                                <input type="radio" name="pachet_baza" value="Configurație personalizată" id="radio-custom" checked onchange="applyPackageItems('Custom')">
+                                <span>Doar selecție personalizată</span>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="pachet_baza" value="Pachet SILVER (de la 1.000 lei)" id="radio-silver" onchange="applyPackageItems('Silver')">
+                                <span>Pachet SILVER (1.000 lei)</span>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="pachet_baza" value="Pachet GOLD (de la 1.500 lei)" id="radio-gold" onchange="applyPackageItems('Gold')">
+                                <span>Pachet GOLD (1.500 lei)</span>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="pachet_baza" value="Pachet PLATINUM (de la 2.550 lei)" id="radio-platinum" onchange="applyPackageItems('Platinum')">
+                                <span>Pachet PLATINUM (2.550 lei)</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-group-box">
+                        <legend>2. Bifează produsele și serviciile dorite (le poți modifica oricând)</legend>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="elemente" value="2 mânere de sprijin în baie">
+                                <span>2 mânere de sprijin în baie</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="elemente" value="Taburet de duș">
+                                <span>Taburet de duș</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="elemente" value="Cadru de sprijin pentru toaletă">
+                                <span>Cadru de sprijin pentru toaletă</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="elemente" value="Covoraș antiderapant">
+                                <span>Covoraș antiderapant</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="elemente" value="Mână curentă de până la 1,5 m (interior)">
+                                <span>Mână curentă de până la 1,5 m</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="elemente" value="Mâner de sprijin lângă pat">
+                                <span>Mâner de sprijin lângă pat</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="elemente" value="Organizarea cablurilor existente">
+                                <span>Organizarea cablurilor existente</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="elemente" value="Reorganizarea mobilierului">
+                                <span>Reorganizarea mobilierului</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="elemente" value="Balustradă inox de până la 2 m (scară exterioară)">
+                                <span>Balustradă inox de până la 2 m (exterior)</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-group-box">
+                        <legend>3. Datele tale pentru programarea evaluării gratuite</legend>
+                        <div class="input-grid">
+                            <div class="input-field">
+                                <label for="nume">Nume și prenume *</label>
+                                <input type="text" id="nume" name="nume" required placeholder="Ex: Ion Popescu">
+                            </div>
+                            <div class="input-field">
+                                <label for="telefon">Număr de telefon * (vei fi contactat în cel mai scurt timp)</label>
+                                <input type="tel" id="telefon" name="telefon" required placeholder="Ex: 0722 000 000">
+                            </div>
+                            <div class="input-field">
+                                <label for="localitate">Localitate / Județ *</label>
+                                <input type="text" id="localitate" name="localitate" required placeholder="Ex: București / Ilfov">
+                            </div>
+                            <div class="input-field">
+                                <label for="email_client">Adresa ta de email (opțional)</label>
+                                <input type="email" id="email_client" name="email_client" placeholder="Ex: nume@email.ro">
+                            </div>
+                        </div>
+
+                        <div class="input-field full-width">
+                            <label for="mesaj">Alte detalii despre locuință sau nevoile persoanei (opțional)</label>
+                            <textarea id="mesaj" name="mesaj" rows="3" placeholder="Ex: Dorim sfatul specialistului în kinetoterapie pentru poziționarea mânerelor în baie..."></textarea>
+                        </div>
+
+                        <div class="gdpr-consent">
+                            <label class="checkbox-item">
+                                <input type="checkbox" id="gdpr" required>
+                                <span>Sunt de acord cu prelucrarea datelor personale (nume, telefon) în scopul de a fi contactat în cel mai scurt timp de către personalul HOLDIS MOBILITY pentru evaluarea gratuită, conform <a href="legal.html#gdpr" target="_blank">Politicii de Confidențialitate</a>. *</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <div id="configSuccessBanner" class="config-success-banner" style="display: none;">
+                        ✓ Solicitarea ta a fost pregătită în clientul de email! Vei fi contactat în cel mai scurt timp de către personalul nostru.
+                    </div>
+
+                    <div class="form-submit-area">
+                        <button type="submit" class="btn-primary btn-large">
+                            Trimite configurația și solicită evaluarea gratuită
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL EVALUARE GRATUITA -->
+    <div id="evalModal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-box" role="dialog" aria-labelledby="modalTitle">
+            <button type="button" class="modal-close" onclick="closeEvalModal()" aria-label="Închide">&times;</button>
+            <div id="modalFormContent">
+                <span class="badge-kineto">EVALUARE GRATUITĂ LA DOMICILIU</span>
+                <h3 id="modalTitle">Solicită Evaluare Gratuită</h3>
+                <p class="modal-desc">
+                    Completează numele și numărul tău de telefon. <strong>Vei fi contactat în cel mai scurt timp de către personalul nostru</strong> pentru a stabili detaliile vizitei gratuite.
+                </p>
+                <form id="quickEvalForm">
+                    <div class="input-field">
+                        <label for="evalNume">Numele și prenumele tău *</label>
+                        <input type="text" id="evalNume" required placeholder="Ex: Maria Ionescu">
+                    </div>
+                    <div class="input-field">
+                        <label for="evalTelefon">Numărul tău de telefon *</label>
+                        <input type="tel" id="evalTelefon" required placeholder="Ex: 0722 000 000">
+                    </div>
+                    <div class="gdpr-mini">
+                        <label class="checkbox-item">
+                            <input type="checkbox" required>
+                            <span>Sunt de acord să fiu contactat telefonic conform <a href="legal.html#gdpr" target="_blank">Politicii GDPR</a>.</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">Trimite solicitarea acum</button>
+                </form>
+            </div>
+            <div id="modalSuccessMessage" class="modal-success" style="display: none;">
+                <div class="success-icon">✓</div>
+                <h3>Solicitarea ta este pregătită!</h3>
+                <p>Am deschis aplicația ta de email pentru a expedia numărul de telefon către echipa HOLDIS MOBILITY. <strong>Vei fi contactat în cel mai scurt timp de către personalul nostru!</strong></p>
+                <button type="button" class="btn-secondary" onclick="closeEvalModal()">Închide fereastra</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="brand-logo footer-brand">
+                        <img src="logo.png" alt="Logo" class="logo-img-footer" onerror="this.src='https://placehold.co/80x80/FFFFFF/2B4C59?text=HM'">
+                        <div class="logo-text">
+                            <span class="logo-main">HOLDIS</span>
+                            <span class="logo-sub">MOBILITY</span>
+                        </div>
+                    </div>
+                    <p>Evaluare gratuită realizată de personal cu experiență în kinetoterapie, furnizare completă de produse și montaj fără griji.</p>
+                    <p class="footer-admin-link">
+                        <a href="mailto:contact@holdismobility.ro" class="admin-mail-pill footer-pill">✉ contact@holdismobility.ro</a>
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Date identificare societate</h4>
+                    <ul class="legal-list">
+                        <li><strong>Denumire:</strong> SC HOLDIS MOBILITY SRL</li>
+                        <li><strong>CUI / CIF:</strong> RO12345678</li>
+                        <li><strong>Nr. Reg. Com. (ONRC):</strong> J40/1234/2026</li>
+                        <li><strong>Sediu social:</strong> Str. Exemplului Nr. 10, Localitate, Județ</li>
+                        <li><strong>Capital social:</strong> 200 LEI</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Informații legale & ANPC</h4>
+                    <ul class="footer-links">
+                        <li><a href="legal.html#termeni">Termeni și Condiții</a></li>
+                        <li><a href="legal.html#gdpr">Politica de Confidențialitate (GDPR)</a></li>
+                        <li><a href="legal.html#cookies">Politica de Cookies</a></li>
+                        <li><a href="https://anpc.ro/" target="_blank" rel="noopener noreferrer">ANPC - Protecția Consumatorilor</a></li>
+                        <li><a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer">ANPC - SAL</a></li>
+                        <li><a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">Platforma Europeană SOL</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span class="currentYear"></span> HOLDIS MOBILITY. Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

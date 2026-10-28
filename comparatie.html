@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabel Comparativ Pachete | HOLDIS MOBILITY</title>
+    <meta name="description" content="Compară în detaliu pachetele Silver, Gold și Platinum oferite de HOLDIS MOBILITY.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER / NAVIGARE -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand-logo">
+                <img src="logo.png" alt="Emblemă HOLDIS MOBILITY" class="logo-img" onerror="this.src='https://placehold.co/96x96/2B4C59/FFFFFF?text=HM'">
+                <div class="logo-text">
+                    <span class="logo-main">HOLDIS</span>
+                    <span class="logo-sub">MOBILITY</span>
+                </div>
+            </a>
+
+            <nav class="main-nav">
+                <a href="index.html">Acasă</a>
+                <a href="pachete.html">Pachete de sprijin</a>
+                <a href="comparatie.html" class="active">Tabel comparativ</a>
+                <a href="configurator.html">Pachet personalizat</a>
+            </nav>
+
+            <div class="header-actions">
+                <button type="button" class="btn-eval-header" onclick="openEvalModal()">
+                    Solicită Evaluare Gratuită
+                </button>
+                <a href="mailto:contact@holdismobility.ro?subject=Solicitare%20informatii%20HOLDIS%20MOBILITY" class="admin-mail-pill">
+                    ✉ Contactează administratorul
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTINUT TABEL COMPARATIV -->
+    <main class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">VEDERE DE ANSAMBLU</span>
+                <h1>Comparație detaliată a pachetelor</h1>
+                <p>
+                    Gold include Silver. Platinum include Gold și Silver. În toate variantele beneficiezi de evaluare gratuită făcută de personal cu experiență în kinetoterapie, produse furnizate de noi, montaj profesionist și curățenie la final.
+                </p>
+            </div>
+
+            <div class="table-responsive">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>PRODUSE ȘI SERVICII INCLUSE</th>
+                            <th>SILVER<br><small>Baie sigură</small></th>
+                            <th>GOLD<br><small>Silver + sprijin în casă</small></th>
+                            <th>PLATINUM<br><small>Gold + balustradă</small></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2 mânere de sprijin în baie</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Taburet de duș</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Cadru de sprijin pentru toaletă</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Covoraș antiderapant inclus</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Mână curentă de până la 1,5 m</td>
+                            <td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Mâner de sprijin lângă pat</td>
+                            <td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Organizarea cablurilor existente</td>
+                            <td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Reorganizarea mobilierului</td>
+                            <td class="dash">—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Balustradă inox de până la 2 m* <small>(pe o singură latură a scării exterioare)</small></td>
+                            <td class="dash">—</td>
+                            <td class="dash">—</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Evaluare gratuită (experiență în kinetoterapie), montaj & curățenie</strong></td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td><strong>PREȚ DE LA</strong></td>
+                            <td>
+                                <strong>1.000 lei</strong><br>
+                                <a href="configurator.html?pachet=Silver" class="table-choose-link">Alege Silver →</a>
+                            </td>
+                            <td>
+                                <strong>1.500 lei</strong><br>
+                                <a href="configurator.html?pachet=Gold" class="table-choose-link">Alege Gold →</a>
+                            </td>
+                            <td>
+                                <strong>2.550 lei</strong><br>
+                                <a href="configurator.html?pachet=Platinum" class="table-choose-link">Alege Platinum →</a>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <p class="table-note">
+                *Evaluare GRATUITĂ și montaj incluse în toate pachetele. Prețurile sunt de pornire pentru pachetul complet. Configurația și oferta finală se confirmă după evaluarea locuinței.
+            </p>
+
+            <div class="page-bottom-actions">
+                <button type="button" class="btn-primary btn-large" onclick="openEvalModal()">
+                    Solicită Evaluare Gratuită
+                </button>
+                <a href="configurator.html" class="btn-secondary btn-large">
+                    Configurează un pachet personalizat →
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL EVALUARE GRATUITA -->
+    <div id="evalModal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-box" role="dialog" aria-labelledby="modalTitle">
+            <button type="button" class="modal-close" onclick="closeEvalModal()" aria-label="Închide">&times;</button>
+            <div id="modalFormContent">
+                <span class="badge-kineto">EVALUARE GRATUITĂ LA DOMICILIU</span>
+                <h3 id="modalTitle">Solicită Evaluare Gratuită</h3>
+                <p class="modal-desc">
+                    Completează numele și numărul tău de telefon. <strong>Vei fi contactat în cel mai scurt timp de către personalul nostru</strong> pentru a stabili detaliile vizitei gratuite.
+                </p>
+                <form id="quickEvalForm">
+                    <div class="input-field">
+                        <label for="evalNume">Numele și prenumele tău *</label>
+                        <input type="text" id="evalNume" required placeholder="Ex: Maria Ionescu">
+                    </div>
+                    <div class="input-field">
+                        <label for="evalTelefon">Numărul tău de telefon *</label>
+                        <input type="tel" id="evalTelefon" required placeholder="Ex: 0722 000 000">
+                    </div>
+                    <div class="gdpr-mini">
+                        <label class="checkbox-item">
+                            <input type="checkbox" required>
+                            <span>Sunt de acord să fiu contactat telefonic conform <a href="legal.html#gdpr" target="_blank">Politicii GDPR</a>.</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">Trimite solicitarea acum</button>
+                </form>
+            </div>
+            <div id="modalSuccessMessage" class="modal-success" style="display: none;">
+                <div class="success-icon">✓</div>
+                <h3>Solicitarea ta este pregătită!</h3>
+                <p>Am deschis aplicația ta de email pentru a expedia numărul de telefon către echipa HOLDIS MOBILITY. <strong>Vei fi contactat în cel mai scurt timp de către personalul nostru!</strong></p>
+                <button type="button" class="btn-secondary" onclick="closeEvalModal()">Închide fereastra</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="brand-logo footer-brand">
+                        <img src="logo.png" alt="Logo" class="logo-img-footer" onerror="this.src='https://placehold.co/80x80/FFFFFF/2B4C59?text=HM'">
+                        <div class="logo-text">
+                            <span class="logo-main">HOLDIS</span>
+                            <span class="logo-sub">MOBILITY</span>
+                        </div>
+                    </div>
+                    <p>Evaluare gratuită realizată de personal cu experiență în kinetoterapie, furnizare completă de produse și montaj fără griji.</p>
+                    <p class="footer-admin-link">
+                        <a href="mailto:contact@holdismobility.ro" class="admin-mail-pill footer-pill">✉ contact@holdismobility.ro</a>
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Date identificare societate</h4>
+                    <ul class="legal-list">
+                        <li><strong>Denumire:</strong> SC HOLDIS MOBILITY SRL</li>
+                        <li><strong>CUI / CIF:</strong> RO12345678</li>
+                        <li><strong>Nr. Reg. Com. (ONRC):</strong> J40/1234/2026</li>
+                        <li><strong>Sediu social:</strong> Str. Exemplului Nr. 10, Localitate, Județ</li>
+                        <li><strong>Capital social:</strong> 200 LEI</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Informații legale & ANPC</h4>
+                    <ul class="footer-links">
+                        <li><a href="legal.html#termeni">Termeni și Condiții</a></li>
+                        <li><a href="legal.html#gdpr">Politica de Confidențialitate (GDPR)</a></li>
+                        <li><a href="legal.html#cookies">Politica de Cookies</a></li>
+                        <li><a href="https://anpc.ro/" target="_blank" rel="noopener noreferrer">ANPC - Protecția Consumatorilor</a></li>
+                        <li><a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer">ANPC - SAL</a></li>
+                        <li><a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">Platforma Europeană SOL</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span class="currentYear"></span> HOLDIS MOBILITY. Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
