@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configurare Dinamică | HOLDIS MOBILITY</title>
     <meta name="description" content="Configurează dinamic elementele de sprijin necesare locuinței tale și trimite solicitarea către echipa Holdis Mobility.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- HEADER: HAMBURGER IN STANGA, LOGO IN DREAPTA -->
+    <!-- HEADER ALB: HAMBURGER IN STANGA, LOGO IN DREAPTA -->
     <header class="site-header">
         <div class="container header-inner">
             <button type="button" class="hamburger-btn" onclick="toggleDrawerMenu()" aria-label="Deschide meniul">
@@ -26,7 +29,7 @@
                     <span class="logo-main">HOLDIS</span>
                     <span class="logo-sub">MOBILITY</span>
                 </div>
-                <img src="logo.png" alt="Logo HOLDIS MOBILITY" class="logo-img" onerror="this.src='https://placehold.co/96x96/142E24/F9F8F3?text=HM'">
+                <img src="logo.png" alt="Logo HOLDIS MOBILITY" class="logo-img" onerror="this.src='https://placehold.co/96x96/142E24/FFFFFF?text=HM'">
             </a>
         </div>
     </header>
@@ -52,31 +55,30 @@
         </div>
     </aside>
 
-    <!-- SECTIUNE CONFIGURATOR DINAMIC (FARA PACHETELE VECHI) -->
+    <!-- SECTIUNE CONFIGURATOR DINAMIC -->
     <main class="section section-cream">
         <div class="container">
             <div class="section-head-dark">
                 <span class="kicker-forest">PERSONALIZARE 100% LIBERĂ</span>
                 <h1>Configurator Dinamic de Sprijin</h1>
-                <p>Selectează exact elementele și cantitățile de care ai nevoie. Evaluarea cu kinetoterapeutul la domiciliu este inclusă gratuit.</p>
+                <p>Selectează exact elementele și cantitățile de care ai nevoie. Evaluarea gratuită oferită de un kinetoterapeut este inclusă.</p>
             </div>
 
             <form id="dynamicConfigForm" class="dynamic-config-layout">
                 
-                <!-- Stanga: Optiuni dinamice pe categorii -->
                 <div class="config-options-col">
                     
                     <div class="config-group-card">
-                        <h3>1. Servicii de Evaluare & Kinetoterapie</h3>
+                        <h3>1. Evaluare & Servicii Incluse</h3>
                         <label class="dynamic-check-row locked-row">
-                            <input type="checkbox" name="dyn_item" value="Evaluare Gratuită la Domiciliu cu Kinetoterapeut (Inclusă)" checked disabled>
-                            <span class="row-title">Evaluare la domiciliu realizată de Kinetoterapeut</span>
+                            <input type="checkbox" name="dyn_item" value="Evaluare gratuită oferită de un kinetoterapeut" checked disabled>
+                            <span class="row-title">Evaluare gratuită oferită de un kinetoterapeut</span>
                             <span class="row-badge">GRATUIT</span>
                         </label>
                         <label class="dynamic-check-row">
-                            <input type="checkbox" name="dyn_item" value="Sesiune suplimentară de instruire la mers și transfer pentru senior" onchange="updateDynamicSummary()">
-                            <span class="row-title">Instruire practică a seniorului la utilizarea echipamentelor</span>
-                            <span class="row-badge">Inclus la montaj</span>
+                            <input type="checkbox" name="dyn_item" value="Dimensiuni personalizate pentru mâini curente și balustrade" onchange="updateDynamicSummary()">
+                            <span class="row-title">Dimensiuni personalizate pentru mâini curente și balustrade</span>
+                            <span class="row-badge">La comandă</span>
                         </label>
                     </div>
 
@@ -85,7 +87,7 @@
                         
                         <div class="qty-row">
                             <div class="qty-info">
-                                <strong>Mânere de sprijin pentru baie (duș / perete)</strong>
+                                <strong>Mânere de sprijin în baie</strong>
                                 <small>Prindere profesională în faianță/beton</small>
                             </div>
                             <div class="qty-controls">
@@ -97,12 +99,12 @@
 
                         <div class="qty-row">
                             <div class="qty-info">
-                                <strong>Taburet medical de duș antiderapant</strong>
-                                <small>Reglabil pe înălțime</small>
+                                <strong>Taburet de duș antiderapant</strong>
+                                <small>Reglabil pe înălțime, picioare cauciucate</small>
                             </div>
                             <div class="qty-controls">
                                 <button type="button" onclick="changeQty('qty_taburet', -1)">−</button>
-                                <input type="number" id="qty_taburet" data-label="Taburet de duș" value="0" min="0" max="5" readonly>
+                                <input type="number" id="qty_taburet" data-label="Taburet de duș antiderapant" value="0" min="0" max="5" readonly>
                                 <button type="button" onclick="changeQty('qty_taburet', 1)">+</button>
                             </div>
                         </div>
@@ -121,8 +123,8 @@
 
                         <div class="qty-row">
                             <div class="qty-info">
-                                <strong>Covoraș antiderapant de baie</strong>
-                                <small>Fixare cu ventuze de siguranță</small>
+                                <strong>Covoraș antiderapant</strong>
+                                <small>Fixare sigură în cadă sau duș</small>
                             </div>
                             <div class="qty-controls">
                                 <button type="button" onclick="changeQty('qty_covoras', -1)">−</button>
@@ -172,8 +174,13 @@
                         </div>
 
                         <label class="dynamic-check-row">
-                            <input type="checkbox" name="dyn_item" value="Organizarea cablurilor existente (prevenire împiedicare)" onchange="updateDynamicSummary()">
-                            <span class="row-title">Organizarea și fixarea cablurilor de pe traseu</span>
+                            <input type="checkbox" name="dyn_item" value="Bandă antiderapantă pentru trepte" onchange="updateDynamicSummary()">
+                            <span class="row-title">Bandă antiderapantă pentru trepte</span>
+                        </label>
+
+                        <label class="dynamic-check-row">
+                            <input type="checkbox" name="dyn_item" value="Organizarea cablurilor existente" onchange="updateDynamicSummary()">
+                            <span class="row-title">Organizarea cablurilor existente</span>
                         </label>
 
                         <label class="dynamic-check-row">
@@ -189,7 +196,7 @@
                     <div class="summary-sticky-card">
                         <h3>Rezumatul Configurației</h3>
                         <ul id="dynamicSummaryList" class="summary-items-list">
-                            <li>✓ Evaluare Gratuită cu Kinetoterapeut</li>
+                            <li>✓ Evaluare gratuită oferită de un kinetoterapeut</li>
                         </ul>
 
                         <hr class="sum-divider">

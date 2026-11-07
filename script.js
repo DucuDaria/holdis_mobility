@@ -1,5 +1,5 @@
 // ==========================================================================
-// CONFIGURARE DATE CONTACT (Schimba cu emailul si numarul tau real)
+// CONFIGURARE DATE CONTACT (Schimba cu emailul tau real)
 // ==========================================================================
 const ADMIN_EMAIL = "contact@holdismobility.ro";
 
@@ -20,7 +20,7 @@ function toggleDrawerMenu() {
 
 // 2. Deschidere Modal Rapid pentru Pachete sau Evaluare Gratuita
 function openQuickEvalModal() {
-    triggerPackageInterest("Evaluare Gratuită cu Kinetoterapeut");
+    triggerPackageInterest("Evaluare Gratuită la Domiciliu");
 }
 
 function triggerPackageInterest(optionTitle) {
@@ -77,10 +77,8 @@ Un client a solicitat „${optiune}” pe site-ul HOLDIS MOBILITY:
 • Zona: ${zona}
 `;
 
-        // Afisam pop-up-ul cerut in mijlocul ecranului
         showThankYouModal();
 
-        // Trimitem datele catre clientul de mail
         setTimeout(() => {
             window.location.href = `mailto:${ADMIN_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }, 400);
@@ -115,9 +113,8 @@ function updateDynamicSummary() {
     const summaryList = document.getElementById("dynamicSummaryList");
     if (!summaryList) return;
 
-    let items = ["✓ Evaluare Gratuită la Domiciliu cu Kinetoterapeut"];
+    let items = ["✓ Evaluare gratuită oferită de un kinetoterapeut"];
 
-    // Preluam cantitatile > 0
     const qtyInputs = document.querySelectorAll(".qty-controls input[type='number']");
     qtyInputs.forEach(inp => {
         const count = parseInt(inp.value, 10) || 0;
@@ -127,7 +124,6 @@ function updateDynamicSummary() {
         }
     });
 
-    // Preluam checkbox-urile suplimentare
     const extraChecks = document.querySelectorAll("input[name='dyn_item']:checked:not(:disabled)");
     extraChecks.forEach(chk => {
         items.push(`• ${chk.value}`);
@@ -175,7 +171,6 @@ OBSERVAȚII:
 ${detalii}
 `;
 
-        // Afisam pop-up-ul central cu mesajul "Mulțumim, vă vom căuta în scurt timp"
         showThankYouModal();
 
         setTimeout(() => {

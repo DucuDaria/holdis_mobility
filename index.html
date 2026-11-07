@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOLDIS MOBILITY | Siguranță și Sprijin Acasă</title>
     <meta name="description" content="Sisteme de sprijin și siguranță pentru seniori în București, Ilfov și Prahova. Evaluare gratuită cu kinetoterapeut și montaj complet.">
+    <!-- Fonturi estetice premium: Playfair Display (pentru titlul de pe poza) & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- HEADER: HAMBURGER IN STANGA, LOGO IN DREAPTA -->
+    <!-- HEADER ALB: HAMBURGER IN STANGA, LOGO IN DREAPTA -->
     <header class="site-header">
         <div class="container header-inner">
             
@@ -29,7 +33,7 @@
                     <span class="logo-main">HOLDIS</span>
                     <span class="logo-sub">MOBILITY</span>
                 </div>
-                <img src="logo.png" alt="Logo HOLDIS MOBILITY" class="logo-img" onerror="this.src='https://placehold.co/96x96/142E24/F9F8F3?text=HM'">
+                <img src="logo.png" alt="Logo HOLDIS MOBILITY" class="logo-img" onerror="this.src='https://placehold.co/96x96/142E24/FFFFFF?text=HM'">
             </a>
 
         </div>
@@ -59,12 +63,17 @@
         </div>
     </aside>
 
-    <!-- HERO SECTION: POZA COVER + TEXT STANGA + BUTON WHATSAPP SUB HOLDIS MOBILITY -->
+    <!-- HERO SECTION: POZA COVER + FONT ESTETIC + BUTON WHATSAPP SUB HOLDIS MOBILITY -->
     <section class="hero-cover" style="background-image: url('banner-senior.jpg'), url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=1600&q=80');">
         <div class="hero-overlay">
             <div class="container hero-content-left">
-                <span class="hero-kicker">HOLDIS MOBILITY</span>
-                <h1>Independență și siguranță în propria casă.</h1>
+                <div class="hero-editorial-badge">
+                    <span class="badge-line"></span>
+                    <span class="hero-kicker">HOLDIS MOBILITY</span>
+                </div>
+                <h1 class="hero-aesthetic-title">
+                    Independență și siguranță <em>în propria casă.</em>
+                </h1>
                 <div class="hero-cta-wrap">
                     <a href="https://wa.me/40722000000?text=Bun%C4%83%20ziua!%20V%C4%83%20contactez%20de%20pe%20site-ul%20Holdis%20Mobility%20pentru%20o%20evaluare." target="_blank" rel="noopener" class="btn-hero-whatsapp">
                         <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
@@ -75,26 +84,16 @@
         </div>
     </section>
 
-    <!-- PACHETE DE SERVICII (DIRECT SUB HERO) -->
+    <!-- PACHETE DE SPRIJIN (FARA BARA CU OPTIUNEA INCLUSA, CU TITLU PACHETE DE SPRIJIN) -->
     <section id="pachete-acasa" class="section section-cream">
         <div class="container">
             
-            <!-- Bifa / Element de Valoare Adaugata: Evaluare Gratuita -->
-            <div class="free-eval-value-bar">
-                <label class="eval-toggle-label">
-                    <input type="checkbox" checked disabled>
-                    <span class="eval-checkmark">✓</span>
-                    <div class="eval-text">
-                        <strong>Opțiune Inclusă (0 Lei): Evaluare Gratuită la Domiciliu + Plan Kinetoterapeutic</strong>
-                        <span>Montaj profesionist și curățenie incluse în fiecare pachet.</span>
-                    </div>
-                </label>
-                <button type="button" class="btn-eval-trigger" onclick="openQuickEvalModal()">
-                    Programează doar evaluarea
-                </button>
+            <div class="section-head-dark">
+                <span class="kicker-forest">SOLUȚII COMPLETE LA CHEIE</span>
+                <h2>PACHETE DE SPRIJIN</h2>
             </div>
 
-            <!-- Grid 4 Pachete: Silver, Gold, Platinum + Pachet Personalizat -->
+            <!-- Grid 4 Pachete: Silver, Gold, Platinum + Configuratie Proprie -->
             <div class="packages-grid-4">
                 
                 <!-- SILVER -->
@@ -107,11 +106,12 @@
                         <h3>Baie sigură</h3>
                         <div class="pkg-price">de la 1.000 lei</div>
                         <ul class="pkg-list">
-                            <li>✓ Evaluare gratuită la domiciliu</li>
+                            <li>✓ Evaluarea gratuită a domiciliului</li>
                             <li>✓ 2 mânere de sprijin în baie</li>
-                            <li>✓ Taburet de duș medical</li>
+                            <li>✓ Taburet de duș antiderapant</li>
                             <li>✓ Cadru de sprijin toaletă</li>
-                            <li>✓ Covoraș antiderapant + Montaj</li>
+                            <li>✓ Covoraș antiderapant</li>
+                            <li>✓ Montaj inclus</li>
                         </ul>
                         <button type="button" class="btn-pkg-select" onclick="triggerPackageInterest('Pachet SILVER (1.000 lei)')">
                             Solicită Silver
@@ -155,8 +155,8 @@
                             <li><strong>✓ Include GOLD + SILVER</strong></li>
                             <li>✓ Balustradă inox până la 2 m*</li>
                             <li>✓ Montaj pe scara exterioară</li>
-                            <li>✓ Evaluare gratuită kineto</li>
-                            <li>✓ Curățenie completă după</li>
+                            <li>✓ Bandă antiderapantă pentru trepte</li>
+                            <li>✓ Curățenie completă după montaj</li>
                         </ul>
                         <button type="button" class="btn-pkg-select" onclick="triggerPackageInterest('Pachet PLATINUM (2.550 lei)')">
                             Solicită Platinum
@@ -164,7 +164,7 @@
                     </div>
                 </article>
 
-                <!-- PACHET PERSONALIZAT (NOU) -->
+                <!-- CONFIGURATIE PROPRIE -->
                 <article class="pkg-card pkg-custom-card">
                     <div class="pkg-img-box pkg-custom-visual">
                         <div class="custom-icon-large">⚙️</div>
@@ -174,10 +174,9 @@
                         <h3>Configurație proprie</h3>
                         <div class="pkg-price">Preț adaptat</div>
                         <ul class="pkg-list">
-                            <li>✓ Evaluare gratuită inclusă</li>
+                            <li>✓ Evaluare gratuită oferită de un kinetoterapeut</li>
                             <li>✓ Alegi doar piesele dorite</li>
-                            <li>✓ Dimensiuni atipice de scări/hol</li>
-                            <li>✓ Asistență kinetoterapeut</li>
+                            <li>✓ Dimensiuni personalizate pentru mâini curente și balustrade</li>
                             <li>✓ Montaj și garanție incluse</li>
                         </ul>
                         <a href="configurator.html" class="btn-pkg-custom">
@@ -188,7 +187,7 @@
 
             </div>
 
-            <!-- PASII DE LUCRU (FARA NICIUN TEXT DEASUPRA PASILOR, CONFORM CERINTEI) -->
+            <!-- PASII DE LUCRU (FARA NICIUN TEXT DEASUPRA PASILOR) -->
             <div class="steps-clean-grid">
                 <div class="step-clean-box">
                     <span class="step-clean-number">01</span>
@@ -198,7 +197,7 @@
                 <div class="step-clean-box">
                     <span class="step-clean-number">02</span>
                     <h4>Furnizare echipamente</h4>
-                    <p>Aducem toate produsele medicale necesare, fără niciun drum sau efort din partea ta.</p>
+                    <p>Aducem toate produsele necesare, fără niciun drum sau efort din partea ta.</p>
                 </div>
                 <div class="step-clean-box">
                     <span class="step-clean-number">03</span>
@@ -210,45 +209,75 @@
         </div>
     </section>
 
-    <!-- SECTIUNEA: DE CE NOI? (FUNDAL FOREST GREEN INCHIS + MENTIUNE EXPLICITA KINETOTERAPEUT) -->
-    <section id="de-ce-noi" class="section section-forest">
+    <!-- CITATUL SI STUDIILE (MUTATE IMEDIAT DUPA PACHETE) -->
+    <section class="quote-and-studies section-forest">
         <div class="container">
-            <div class="section-head-light">
-                <span class="kicker-gold">SIGURANȚĂ MEDICALĂ & TEHNICĂ</span>
+            
+            <div class="quote-inner">
+                <span class="quote-mark">“</span>
+                <blockquote>
+                    O cădere poate dura câteva secunde, dar o recuperare poate dura ani.
+                </blockquote>
+                <p class="quote-sub">Prevenția acasă este cel mai sigur tratament.</p>
+            </div>
+
+            <div class="evidence-strip-forest">
+                <div class="evidence-box-forest">
+                    <strong>~80%</strong>
+                    <span>dintre accidentările casnice ale seniorilor au loc în baie și pe scări.</span>
+                </div>
+                <div class="evidence-box-forest">
+                    <strong>-65%</strong>
+                    <span>reducere a riscului de alunecare prin montarea barelor de sprijin biomecanic.</span>
+                </div>
+                <div class="evidence-box-forest">
+                    <strong>1/3</strong>
+                    <span>persoane de 65+ au suferit cel puțin o cădere într-o perioadă de un an.</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTIUNEA: DE CE SA NE ALEGI? -->
+    <section id="de-ce-noi" class="section section-cream">
+        <div class="container">
+            <div class="section-head-dark">
+                <span class="kicker-forest">SIGURANȚĂ MEDICALĂ & TEHNICĂ</span>
                 <h2>De ce să ne alegi?</h2>
             </div>
 
-            <!-- Highlight Explicit Kinetoterapeut -->
-            <div class="kineto-highlight-banner">
+            <!-- Highlight Explicit Kinetoterapeut cu textul exact cerut -->
+            <div class="kineto-highlight-light">
                 <div class="kineto-icon">🩺</div>
                 <div class="kineto-info">
                     <h3>Ești ajutat direct de un Kinetoterapeut</h3>
-                    <p>Fiecare evaluare și poziționare a mânerelor este ghidată de un specialist în kinetoterapie, care analizează biomecanica mișcării, echilibrul și forța reală a seniorului.</p>
+                    <p>Fiecare evaluare inițială este ghidată de un specialist în kinetoterapie ce analizează punctele slabe de sprijin și potențialele pericole din locuință.</p>
                 </div>
             </div>
 
             <div class="why-grid-5">
-                <div class="why-forest-card">
+                <div class="why-light-card">
                     <span class="why-num">01</span>
                     <h4>Evaluare Gratuită</h4>
                     <p>Consultanță la domiciliu cu kinetoterapeut, fără costuri și fără obligații.</p>
                 </div>
-                <div class="why-forest-card">
+                <div class="why-light-card">
                     <span class="why-num">02</span>
                     <h4>Produse de Calitate</h4>
                     <p>Sisteme de sprijin certificate, antiderapante și inox rezistent la uzură.</p>
                 </div>
-                <div class="why-forest-card">
+                <div class="why-light-card">
                     <span class="why-num">03</span>
                     <h4>Montaj Profesional</h4>
                     <p>Ancorări chimice și mecanice adaptate oricărui tip de perete sau scară.</p>
                 </div>
-                <div class="why-forest-card">
+                <div class="why-light-card">
                     <span class="why-num">04</span>
                     <h4>Curățenie după Montaj</h4>
                     <p>Aspirăm și curățăm integral zona de lucru. Lăsăm casa impecabilă.</p>
                 </div>
-                <div class="why-forest-card">
+                <div class="why-light-card">
                     <span class="why-num">05</span>
                     <h4>Consultanță la Montaj</h4>
                     <p>Exersăm împreună cu vârstnicul ridicarea și sprijinul corect în fiecare zonă.</p>
@@ -257,69 +286,98 @@
         </div>
     </section>
 
-    <!-- SECTIUNEA: ARIA DE LUCRU (FORMAT VIZUAL DEDICAT: BUCURESTI - ILFOV - PRAHOVA) -->
-    <section id="aria-lucru" class="section section-cream">
+    <!-- SECTIUNEA: ARIA DE LUCRU (DESIGN DINAMIC, ARHITECTURAL & DE IMPACT) -->
+    <section id="aria-lucru" class="section section-forest">
         <div class="container">
-            <div class="coverage-showcase">
-                <div class="coverage-text">
-                    <span class="kicker-forest">ACOPERIRE REGIONALĂ RAPIDĂ</span>
-                    <h2>Aria noastră de lucru</h2>
-                    <p>Echipele noastre mobile asigură evaluări gratuite și montaj rapid în toate sectoarele și localitățile din:</p>
-                </div>
-                <div class="coverage-badges">
-                    <div class="city-card">
-                        <span class="city-pin">📍</span>
-                        <strong>BUCUREȘTI</strong>
-                        <small>Toate sectoarele (1 - 6)</small>
+            <div class="coverage-dynamic-wrap">
+                
+                <div class="coverage-header-row">
+                    <div>
+                        <span class="kicker-gold">INTERVENȚIE RAPIDĂ LA DOMICILIU</span>
+                        <h2>Aria noastră de acoperire</h2>
+                        <p class="coverage-lead">Echipele noastre mobile cu laborator tehnic și kinetoterapeut acoperă integral axa București – Ilfov – Valea Prahovei, fără taxe ascunse de deplasare pentru evaluare.</p>
                     </div>
-                    <div class="city-connector"></div>
-                    <div class="city-card">
-                        <span class="city-pin">📍</span>
-                        <strong>ILFOV</strong>
-                        <small>Toate localitățile</small>
-                    </div>
-                    <div class="city-connector"></div>
-                    <div class="city-card">
-                        <span class="city-pin">📍</span>
-                        <strong>PRAHOVA</strong>
-                        <small>Ploiești, Câmpina & Valea Prahovei</small>
+                    <div class="coverage-live-pill">
+                        <span class="pulse-dot"></span>
+                        <span>Echipe active pe teren</span>
                     </div>
                 </div>
+
+                <div class="coverage-cards-grid">
+                    
+                    <!-- BUCURESTI -->
+                    <div class="region-card">
+                        <div class="region-top">
+                            <span class="region-code">ZONA 01</span>
+                            <span class="region-badge">Acoperire Integrală</span>
+                        </div>
+                        <h3>BUCUREȘTI</h3>
+                        <p class="region-desc">Intervenții rapide în toate cele 6 sectoare, atât în apartamente de bloc, cât și în locuințe individuale.</p>
+                        <div class="region-tags">
+                            <span>Sector 1</span>
+                            <span>Sector 2</span>
+                            <span>Sector 3</span>
+                            <span>Sector 4</span>
+                            <span>Sector 5</span>
+                            <span>Sector 6</span>
+                        </div>
+                    </div>
+
+                    <!-- ILFOV -->
+                    <div class="region-card region-card-featured">
+                        <div class="region-top">
+                            <span class="region-code">ZONA 02</span>
+                            <span class="region-badge badge-accent">Zona Metropolitană</span>
+                        </div>
+                        <h3>ILFOV</h3>
+                        <p class="region-desc">Deplasare gratuită pentru evaluarea caselor și vilelor cu scări interioare sau exterioare din tot județul.</p>
+                        <div class="region-tags">
+                            <span>Otopeni</span>
+                            <span>Pipera / Voluntari</span>
+                            <span>Corbeanca</span>
+                            <span>Snagov</span>
+                            <span>Bragadiru</span>
+                            <span>+ Toate localitățile</span>
+                        </div>
+                    </div>
+
+                    <!-- PRAHOVA -->
+                    <div class="region-card">
+                        <div class="region-top">
+                            <span class="region-code">ZONA 03</span>
+                            <span class="region-badge">Extindere Regională</span>
+                        </div>
+                        <h3>PRAHOVA</h3>
+                        <p class="region-desc">Echipă dedicată pentru municipiul Ploiești, localitățile limitrofe și întreaga Vale a Prahovei.</p>
+                        <div class="region-tags">
+                            <span>Ploiești</span>
+                            <span>Câmpina</span>
+                            <span>Breaza</span>
+                            <span>Cornu</span>
+                            <span>Sinaia / Bușteni</span>
+                            <span>Întreg județul</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="coverage-bottom-bar">
+                    <div class="cbb-text">
+                        <strong>Locuiești în București, Ilfov sau Prahova?</strong>
+                        <span>Programează acum o vizită gratuită de evaluare la domiciliu.</span>
+                    </div>
+                    <button type="button" class="btn-coverage-cta" onclick="openQuickEvalModal()">
+                        Verifică disponibilitatea în zona ta →
+                    </button>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- CITAT RELEVANT (FOREST GREEN) -->
-    <section class="quote-section section-forest">
-        <div class="container quote-inner">
-            <span class="quote-mark">“</span>
-            <blockquote>
-                O cădere poate dura câteva secunde, dar o recuperare poate dura ani.
-            </blockquote>
-            <p class="quote-sub">Prevenția acasă este cel mai sigur tratament.</p>
-        </div>
-    </section>
-
-    <!-- DOVEZI / STUDII & RECENZII (CREM) -->
+    <!-- RECENZII FAMILII (CREM) -->
     <section class="section section-cream">
         <div class="container">
-            
-            <!-- Dovezi / Date Studii -->
-            <div class="evidence-strip">
-                <div class="evidence-item">
-                    <strong>~80%</strong>
-                    <span>dintre accidentările casnice ale seniorilor au loc în baie și pe scări.</span>
-                </div>
-                <div class="evidence-item">
-                    <strong>-65%</strong>
-                    <span>reducere a riscului de alunecare prin montarea barelor de sprijin biomecanic.</span>
-                </div>
-                <div class="evidence-item">
-                    <strong>100%</strong>
-                    <span>fără griji: evaluare kineto, echipamente și montaj într-o singură vizită.</span>
-                </div>
-            </div>
-
             <div class="section-head-dark">
                 <span class="kicker-forest">DOVEZI REALE</span>
                 <h2>Familii care au ales siguranța</h2>
@@ -342,7 +400,6 @@
                     <div class="rev-meta"><strong>Mihai R.</strong> • Ploiești, Prahova (Pachet Silver)</div>
                 </article>
             </div>
-
         </div>
     </section>
 
@@ -362,7 +419,7 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Un specialist cu experiență în kinetoterapie se deplasează gratuit la domiciliul beneficiarului (în București, Ilfov sau Prahova). Acesta evaluează gradul de mobilitate al persoanei, punctele de sprijin necesare la ridicare/așezare și structura pereților. La finalul vizitei, primiți planul exact de amplasare și oferta finală fermă, fără nicio obligație de achiziție.</p>
+                        <p>Un specialist în kinetoterapie se deplasează gratuit la domiciliul beneficiarului (în București, Ilfov sau Prahova). Acesta analizează punctele slabe de sprijin, potențialele pericole din locuință și structura pereților. La finalul vizitei, primiți planul exact de amplasare și oferta finală fermă, fără nicio obligație de achiziție.</p>
                     </div>
                 </div>
 
@@ -388,11 +445,11 @@
 
                 <div class="faq-item">
                     <button type="button" class="faq-question" onclick="toggleFaq(this)">
-                        <span>4. Putem modifica pachetele sau comanda doar anumite produse?</span>
+                        <span>4. Putem realiza dimensiuni personalizate pentru mâini curente și balustrade?</span>
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Desigur. Pe lângă pachetele Silver, Gold și Platinum, aveți la dispoziție Pachetul Personalizat și pagina noastră de Configurare Dinamică, unde puteți selecta exact cantitatea și tipul elementelor dorite (de exemplu, doar 3 mânere de baie și o balustradă exterioară).</p>
+                        <p>Desigur. Prin opțiunea de Configurație Proprie adaptăm lungimea mâinilor curente și a balustradelor din inox la dimensiunile exacte ale scărilor sau holurilor dumneavoastră, selectând doar piesele dorite.</p>
                     </div>
                 </div>
 
