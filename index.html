@@ -3,303 +3,487 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOLDIS MOBILITY | Siguranță și Sprijin Acasă pentru Seniori</title>
-    <meta name="description" content="Evaluare gratuită la domiciliu realizată de personal cu experiență în kinetoterapie. Furnizăm și montăm sisteme de sprijin pentru seniori, fără nicio grijă pentru tine.">
+    <title>HOLDIS MOBILITY | Siguranță și Sprijin Acasă</title>
+    <meta name="description" content="Sisteme de sprijin și siguranță pentru seniori în București, Ilfov și Prahova. Evaluare gratuită cu kinetoterapeut și montaj complet.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- HEADER / NAVIGARE PE PAGINI SEPARATE -->
+    <!-- HEADER: HAMBURGER IN STANGA, LOGO IN DREAPTA -->
     <header class="site-header">
         <div class="container header-inner">
+            
+            <!-- Stanga: Buton Meniu Hamburger -->
+            <button type="button" class="hamburger-btn" id="menuToggleBtn" aria-label="Deschide meniul" onclick="toggleDrawerMenu()">
+                <span class="ham-Lines">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                <span class="ham-label">Meniu</span>
+            </button>
+
+            <!-- Dreapta: Logo Holdis Mobility -->
             <a href="index.html" class="brand-logo">
-                <!-- PLACEHOLDER PENTRU EMBLEMA / LOGO-UL HOLDIS MOBILITY -->
-                <!-- Pune in folderul tau fisierul "logo.png". Daca nu exista inca, se afiseaza automat emblema de rezerva -->
-                <img src="logo.png" alt="Emblemă HOLDIS MOBILITY" class="logo-img" onerror="this.src='https://placehold.co/96x96/2B4C59/FFFFFF?text=HM'">
                 <div class="logo-text">
                     <span class="logo-main">HOLDIS</span>
                     <span class="logo-sub">MOBILITY</span>
                 </div>
+                <img src="logo.png" alt="Logo HOLDIS MOBILITY" class="logo-img" onerror="this.src='https://placehold.co/96x96/142E24/F9F8F3?text=HM'">
             </a>
 
-            <nav class="main-nav">
-                <a href="index.html" class="active">Acasă</a>
-                <a href="pachete.html">Pachete de sprijin</a>
-                <a href="comparatie.html">Tabel comparativ</a>
-                <a href="configurator.html">Pachet personalizat</a>
-            </nav>
-
-            <div class="header-actions">
-                <button type="button" class="btn-eval-header" onclick="openEvalModal()">
-                    Solicită Evaluare Gratuită
-                </button>
-                <a href="mailto:contact@holdismobility.ro?subject=Solicitare%20informatii%20HOLDIS%20MOBILITY" class="admin-mail-pill" title="Trimite email direct administratorului">
-                    ✉ Contactează administratorul
-                </a>
-            </div>
         </div>
     </header>
 
-    <!-- BANNER PRINCIPAL CU IMAGINE SI SLOGANUL JOS -->
-    <section class="hero-banner">
+    <!-- DRAWER MENIU LATERAL (FARA SECTIUNEA PACHETE) -->
+    <div class="drawer-overlay" id="drawerOverlay" onclick="toggleDrawerMenu()"></div>
+    <aside class="side-drawer" id="sideDrawer" aria-hidden="true">
+        <div class="drawer-header">
+            <span class="drawer-title">Navigare</span>
+            <button type="button" class="drawer-close" onclick="toggleDrawerMenu()" aria-label="Închide meniul">&times;</button>
+        </div>
+        <nav class="drawer-nav">
+            <a href="index.html" class="active">Acasă</a>
+            <a href="configurator.html">Configurare dinamică</a>
+            <a href="comparatie.html">Tabel comparativ</a>
+            <a href="#de-ce-noi" onclick="toggleDrawerMenu()">De ce noi?</a>
+            <a href="#aria-lucru" onclick="toggleDrawerMenu()">Aria de acoperire</a>
+            <a href="#faq" onclick="toggleDrawerMenu()">Întrebări frecvente (FAQ)</a>
+            <a href="legal.html">Informații legale & GDPR</a>
+        </nav>
+        <div class="drawer-footer">
+            <a href="https://wa.me/40722000000?text=Bun%C4%83%20ziua!%20Doresc%20informa%C8%9Bii%20despre%20serviciile%20Holdis%20Mobility." target="_blank" rel="noopener" class="btn-whatsapp-full">
+                💬 Scrie-ne pe WhatsApp
+            </a>
+            <a href="mailto:contact@holdismobility.ro" class="drawer-mail">✉ contact@holdismobility.ro</a>
+        </div>
+    </aside>
+
+    <!-- HERO SECTION: POZA COVER + TEXT STANGA + BUTON WHATSAPP SUB HOLDIS MOBILITY -->
+    <section class="hero-cover" style="background-image: url('banner-senior.jpg'), url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=1600&q=80');">
+        <div class="hero-overlay">
+            <div class="container hero-content-left">
+                <span class="hero-kicker">HOLDIS MOBILITY</span>
+                <h1>Independență și siguranță în propria casă.</h1>
+                <div class="hero-cta-wrap">
+                    <a href="https://wa.me/40722000000?text=Bun%C4%83%20ziua!%20V%C4%83%20contactez%20de%20pe%20site-ul%20Holdis%20Mobility%20pentru%20o%20evaluare." target="_blank" rel="noopener" class="btn-hero-whatsapp">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+                        Contactează-ne
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PACHETE DE SERVICII (DIRECT SUB HERO) -->
+    <section id="pachete-acasa" class="section section-cream">
         <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <span class="badge-kineto">✓ Evaluare făcută de specialiști cu experiență în kinetoterapie</span>
-                    <h1>Transformăm casa într-un loc sigur, cald și lipsit de pericole pentru cei dragi.</h1>
-                    <p class="hero-lead">
-                        Venim direct la tine acasă, analizăm gratuit fiecare traseu zilnic din perspectiva mișcării sigure, aducem toate produsele necesare și le montăm impecabil. <strong>Tu și familia ta aveți zero griji.</strong>
-                    </p>
-                    <div class="hero-buttons">
-                        <button type="button" class="btn-primary btn-large" onclick="openEvalModal()">
-                            Solicită Evaluare Gratuită
+            
+            <!-- Bifa / Element de Valoare Adaugata: Evaluare Gratuita -->
+            <div class="free-eval-value-bar">
+                <label class="eval-toggle-label">
+                    <input type="checkbox" checked disabled>
+                    <span class="eval-checkmark">✓</span>
+                    <div class="eval-text">
+                        <strong>Opțiune Inclusă (0 Lei): Evaluare Gratuită la Domiciliu + Plan Kinetoterapeutic</strong>
+                        <span>Montaj profesionist și curățenie incluse în fiecare pachet.</span>
+                    </div>
+                </label>
+                <button type="button" class="btn-eval-trigger" onclick="openQuickEvalModal()">
+                    Programează doar evaluarea
+                </button>
+            </div>
+
+            <!-- Grid 4 Pachete: Silver, Gold, Platinum + Pachet Personalizat -->
+            <div class="packages-grid-4">
+                
+                <!-- SILVER -->
+                <article class="pkg-card">
+                    <div class="pkg-img-box">
+                        <img src="pachet-silver.jpg" alt="Pachet Silver Baie" onerror="this.src='https://placehold.co/500x320/142E24/F9F8F3?text=SILVER+-+Baie+Sigura'">
+                        <span class="pkg-badge">SILVER</span>
+                    </div>
+                    <div class="pkg-content">
+                        <h3>Baie sigură</h3>
+                        <div class="pkg-price">de la 1.000 lei</div>
+                        <ul class="pkg-list">
+                            <li>✓ Evaluare gratuită la domiciliu</li>
+                            <li>✓ 2 mânere de sprijin în baie</li>
+                            <li>✓ Taburet de duș medical</li>
+                            <li>✓ Cadru de sprijin toaletă</li>
+                            <li>✓ Covoraș antiderapant + Montaj</li>
+                        </ul>
+                        <button type="button" class="btn-pkg-select" onclick="triggerPackageInterest('Pachet SILVER (1.000 lei)')">
+                            Solicită Silver
                         </button>
-                        <a href="pachete.html" class="btn-secondary btn-large">
-                            Descoperă pachetele noastre
+                    </div>
+                </article>
+
+                <!-- GOLD -->
+                <article class="pkg-card pkg-featured">
+                    <div class="pkg-ribbon">Cel mai ales</div>
+                    <div class="pkg-img-box">
+                        <img src="pachet-gold.jpg" alt="Pachet Gold Locuință" onerror="this.src='https://placehold.co/500x320/1F4738/F9F8F3?text=GOLD+-+Interior+Complet'">
+                        <span class="pkg-badge">GOLD</span>
+                    </div>
+                    <div class="pkg-content">
+                        <h3>Sprijin în locuință</h3>
+                        <div class="pkg-price">de la 1.500 lei</div>
+                        <ul class="pkg-list">
+                            <li><strong>✓ Include tot pachetul SILVER</strong></li>
+                            <li>✓ Mână curentă până la 1,5 m</li>
+                            <li>✓ Mâner de sprijin lângă pat</li>
+                            <li>✓ Organizarea cablurilor</li>
+                            <li>✓ Reorganizarea mobilierului</li>
+                        </ul>
+                        <button type="button" class="btn-pkg-select" onclick="triggerPackageInterest('Pachet GOLD (1.500 lei)')">
+                            Solicită Gold
+                        </button>
+                    </div>
+                </article>
+
+                <!-- PLATINUM -->
+                <article class="pkg-card">
+                    <div class="pkg-img-box">
+                        <img src="pachet-platinum.jpg" alt="Pachet Platinum Exterior" onerror="this.src='https://placehold.co/500x320/142E24/F9F8F3?text=PLATINUM+-+Casa+%2B+Exterior'">
+                        <span class="pkg-badge">PLATINUM</span>
+                    </div>
+                    <div class="pkg-content">
+                        <h3>Acasă și afară</h3>
+                        <div class="pkg-price">de la 2.550 lei</div>
+                        <ul class="pkg-list">
+                            <li><strong>✓ Include GOLD + SILVER</strong></li>
+                            <li>✓ Balustradă inox până la 2 m*</li>
+                            <li>✓ Montaj pe scara exterioară</li>
+                            <li>✓ Evaluare gratuită kineto</li>
+                            <li>✓ Curățenie completă după</li>
+                        </ul>
+                        <button type="button" class="btn-pkg-select" onclick="triggerPackageInterest('Pachet PLATINUM (2.550 lei)')">
+                            Solicită Platinum
+                        </button>
+                    </div>
+                </article>
+
+                <!-- PACHET PERSONALIZAT (NOU) -->
+                <article class="pkg-card pkg-custom-card">
+                    <div class="pkg-img-box pkg-custom-visual">
+                        <div class="custom-icon-large">⚙️</div>
+                        <span class="pkg-badge badge-gold">PERSONALIZAT</span>
+                    </div>
+                    <div class="pkg-content">
+                        <h3>Configurație proprie</h3>
+                        <div class="pkg-price">Preț adaptat</div>
+                        <ul class="pkg-list">
+                            <li>✓ Evaluare gratuită inclusă</li>
+                            <li>✓ Alegi doar piesele dorite</li>
+                            <li>✓ Dimensiuni atipice de scări/hol</li>
+                            <li>✓ Asistență kinetoterapeut</li>
+                            <li>✓ Montaj și garanție incluse</li>
+                        </ul>
+                        <a href="configurator.html" class="btn-pkg-custom">
+                            Configurează dinamic →
                         </a>
                     </div>
-                </div>
+                </article>
 
-                <div class="hero-image-box">
-                    <!-- PLACEHOLDER BANNER: Pune in folder o poza numita "banner-senior.jpg" -->
-                    <img src="banner-senior.jpg" alt="Sprijin cald și siguranță acasă pentru vârstnici" class="banner-img" onerror="this.src='https://placehold.co/700x500/E8F0EB/2B4C59?text=Aici+apare+poza+ta:+banner-senior.jpg'">
+            </div>
+
+            <!-- PASII DE LUCRU (FARA NICIUN TEXT DEASUPRA PASILOR, CONFORM CERINTEI) -->
+            <div class="steps-clean-grid">
+                <div class="step-clean-box">
+                    <span class="step-clean-number">01</span>
+                    <h4>Evaluare la domiciliu</h4>
+                    <p>Venim gratuit, analizăm traseele zilnice și stabilim punctele critice de sprijin.</p>
+                </div>
+                <div class="step-clean-box">
+                    <span class="step-clean-number">02</span>
+                    <h4>Furnizare echipamente</h4>
+                    <p>Aducem toate produsele medicale necesare, fără niciun drum sau efort din partea ta.</p>
+                </div>
+                <div class="step-clean-box">
+                    <span class="step-clean-number">03</span>
+                    <h4>Montaj & 0 Griji</h4>
+                    <p>Instalăm totul sigur, facem curățenie la final și instruim seniorul pas cu pas.</p>
                 </div>
             </div>
 
-            <!-- SLOGANUL SUB BANNER -->
-            <div class="slogan-banner">
-                <p class="slogan-quote">„O cădere poate dura câteva secunde, dar o recuperare poate dura ani.”</p>
-                <span class="slogan-sub">Prevenția în propria locuință este cel mai frumos gest de grijă.</span>
-            </div>
         </div>
     </section>
 
-    <!-- SECTIUNE: ACCENT PE KINETOTERAPIE & PROCESUL "ZERO GRIJI" -->
-    <section class="section">
+    <!-- SECTIUNEA: DE CE NOI? (FUNDAL FOREST GREEN INCHIS + MENTIUNE EXPLICITA KINETOTERAPEUT) -->
+    <section id="de-ce-noi" class="section section-forest">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">EXPERTIZĂ MEDICALĂ ȘI TEHNICĂ</span>
-                <h2>Mai mult decât un simplu montaj: o evaluare gândită de oameni cu experiență în kinetoterapie</h2>
-                <p>
-                    Un mâner pus la întâmplare poate fi inutil sau chiar incomod. Pentru că avem experiență în kinetoterapie și biomecanică, știm exact unde se lasă greutatea corpului, cum se ridică o persoană în siguranță și unde apare riscul de dezechilibru.
-                </p>
-            </div>
-
-            <div class="zero-worries-grid">
-                <div class="step-card">
-                    <div class="step-num">Pasul 1</div>
-                    <h3>Venim la tine acasă (Evaluare Gratuită)</h3>
-                    <p>Ne deplasăm la locuința ta sau a părinților/bunicilor tăi. Analizăm cu răbdare și empatie baia, dormitorul, holurile și scările, ținând cont de mobilitatea reală a persoanei.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-num">Pasul 2</div>
-                    <h3>Aducem noi absolut toate produsele</h3>
-                    <p>Nu trebuie să cauți nimic prin magazine și nici să măsori pereții. Îți furnizăm noi toate echipamentele medicale și de sprijin, testate, solide și potrivite spațiului tău.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-num">Pasul 3</div>
-                    <h3>Montăm în siguranță și lăsăm curat</h3>
-                    <p>Fixăm fiecare element cu prinderi profesionale, reorganizăm spațiul, facem curățenie completă în urma noastră și îi arătăm seniorului, pas cu pas, cum să folosească fiecare punct de sprijin.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTIUNE: DE CE SA NE ALEGI? (Cele 5 puncte cerute) -->
-    <section class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">SIGURANȚĂ DE LA CAP LA COADĂ</span>
+            <div class="section-head-light">
+                <span class="kicker-gold">SIGURANȚĂ MEDICALĂ & TEHNICĂ</span>
                 <h2>De ce să ne alegi?</h2>
-                <p>Ne ocupăm de absolut tot, cu discreție, respect și atenție pentru confortul familiei tale.</p>
             </div>
 
-            <div class="why-us-grid">
-                <div class="why-card">
-                    <div class="why-icon">🩺</div>
-                    <h3>Evaluare Gratuită</h3>
-                    <p>Realizată direct la domiciliu de personal cu experiență în kinetoterapie, fără nicio obligație din partea ta.</p>
+            <!-- Highlight Explicit Kinetoterapeut -->
+            <div class="kineto-highlight-banner">
+                <div class="kineto-icon">🩺</div>
+                <div class="kineto-info">
+                    <h3>Ești ajutat direct de un Kinetoterapeut</h3>
+                    <p>Fiecare evaluare și poziționare a mânerelor este ghidată de un specialist în kinetoterapie, care analizează biomecanica mișcării, echilibrul și forța reală a seniorului.</p>
                 </div>
+            </div>
 
-                <div class="why-card">
-                    <div class="why-icon">🛡️</div>
-                    <h3>Produse de calitate</h3>
-                    <p>Furnizăm echipamente rezistente, ergonomice și antiderapante, alese special pentru utilizare zilnică intensă.</p>
+            <div class="why-grid-5">
+                <div class="why-forest-card">
+                    <span class="why-num">01</span>
+                    <h4>Evaluare Gratuită</h4>
+                    <p>Consultanță la domiciliu cu kinetoterapeut, fără costuri și fără obligații.</p>
                 </div>
-
-                <div class="why-card">
-                    <div class="why-icon">🔧</div>
-                    <h3>Montaj profesional</h3>
-                    <p>Ancorare sigură în funcție de tipul peretelui și la înălțimea optimă pentru statura și nevoile beneficiarului.</p>
+                <div class="why-forest-card">
+                    <span class="why-num">02</span>
+                    <h4>Produse de Calitate</h4>
+                    <p>Sisteme de sprijin certificate, antiderapante și inox rezistent la uzură.</p>
                 </div>
-
-                <div class="why-card">
-                    <div class="why-icon">✨</div>
-                    <h3>Curățenie după montaj</h3>
-                    <p>Strângem praful și ambalajele. Lăsăm baia și casa impecabile, gata de folosit imediat, fără efort pentru tine.</p>
+                <div class="why-forest-card">
+                    <span class="why-num">03</span>
+                    <h4>Montaj Profesional</h4>
+                    <p>Ancorări chimice și mecanice adaptate oricărui tip de perete sau scară.</p>
                 </div>
-
-                <div class="why-card">
-                    <div class="why-icon">🤝</div>
-                    <h3>Consultanță la montaj</h3>
-                    <p>Ghidăm cu blândețe persoana vârstnică să folosească corect fiecare mâner, cadru sau balustradă instalată.</p>
+                <div class="why-forest-card">
+                    <span class="why-num">04</span>
+                    <h4>Curățenie după Montaj</h4>
+                    <p>Aspirăm și curățăm integral zona de lucru. Lăsăm casa impecabilă.</p>
+                </div>
+                <div class="why-forest-card">
+                    <span class="why-num">05</span>
+                    <h4>Consultanță la Montaj</h4>
+                    <p>Exersăm împreună cu vârstnicul ridicarea și sprijinul corect în fiecare zonă.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTIUNE: RECENZII CLIENTI -->
-    <section class="section">
+    <!-- SECTIUNEA: ARIA DE LUCRU (FORMAT VIZUAL DEDICAT: BUCURESTI - ILFOV - PRAHOVA) -->
+    <section id="aria-lucru" class="section section-cream">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">FAMILII LINIȘTITE</span>
-                <h2>Ce spun familiile care ne-au trecut pragul</h2>
-                <p>Încrederea se câștigă prin grijă, punctualitate și respect față de seniori.</p>
-            </div>
-
-            <div class="reviews-grid">
-                <article class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">
-                        „După ce mama a avut o mică alunecare în baie, am apelat la HOLDIS MOBILITY. Faptul că evaluarea a fost făcută de cineva cu experiență în kinetoterapie a contat enorm: au pus mânerele exact acolo unde avea ea nevoie să se prindă. Au adus totul, au montat și au lăsat bec în urmă.”
-                    </p>
-                    <div class="review-author">
-                        <strong>Elena M.</strong>
-                        <span>Pachet Gold • București</span>
+            <div class="coverage-showcase">
+                <div class="coverage-text">
+                    <span class="kicker-forest">ACOPERIRE REGIONALĂ RAPIDĂ</span>
+                    <h2>Aria noastră de lucru</h2>
+                    <p>Echipele noastre mobile asigură evaluări gratuite și montaj rapid în toate sectoarele și localitățile din:</p>
+                </div>
+                <div class="coverage-badges">
+                    <div class="city-card">
+                        <span class="city-pin">📍</span>
+                        <strong>BUCUREȘTI</strong>
+                        <small>Toate sectoarele (1 - 6)</small>
                     </div>
-                </article>
-
-                <article class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">
-                        „Tatăl meu locuiește singur și îmi era mereu teamă când ieșea pe scările din fața casei sau când făcea duș. Echipa a venit la el, i-a vorbit cu o răbdare extraordinară, a instalat tot pachetul Platinum și i-a explicat cum să pășească în siguranță. Zero bătăi de cap pentru noi!”
-                    </p>
-                    <div class="review-author">
-                        <strong>Andrei V.</strong>
-                        <span>Pachet Platinum • Ilfov</span>
+                    <div class="city-connector"></div>
+                    <div class="city-card">
+                        <span class="city-pin">📍</span>
+                        <strong>ILFOV</strong>
+                        <small>Toate localitățile</small>
                     </div>
-                </article>
-
-                <article class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">
-                        „Oameni calzi și foarte profesioniști. Nu au încercat să ne vândă lucruri inutile, ci ne-au recomandat exact ce era potrivit pentru baia bunicilor. Au făcut curățenie lună după ce au dat găurile în faianță. Recomand din toată inima!”
-                    </p>
-                    <div class="review-author">
-                        <strong>Cristina D.</strong>
-                        <span>Pachet Silver • București</span>
+                    <div class="city-connector"></div>
+                    <div class="city-card">
+                        <span class="city-pin">📍</span>
+                        <strong>PRAHOVA</strong>
+                        <small>Ploiești, Câmpina & Valea Prahovei</small>
                     </div>
-                </article>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTIUNE FINALA: CALL TO ACTION PENTRU EVALUARE GRATUITA -->
-    <section class="cta-banner-section">
-        <div class="container cta-inner">
-            <h2>Ești gata să oferi siguranță celor dragi, fără nicio grijă?</h2>
-            <p>Lasă-ne numele și numărul tău de telefon. Un specialist cu experiență în kinetoterapie te va contacta în cel mai scurt timp pentru a programa evaluarea gratuită.</p>
-            <div class="cta-buttons">
-                <button type="button" class="btn-light-cta" onclick="openEvalModal()">
-                    Solicită Evaluare Gratuită
-                </button>
-                <a href="pachete.html" class="btn-outline-light">
-                    Vezi pachetele și prețurile
-                </a>
-            </div>
+    <!-- CITAT RELEVANT (FOREST GREEN) -->
+    <section class="quote-section section-forest">
+        <div class="container quote-inner">
+            <span class="quote-mark">“</span>
+            <blockquote>
+                O cădere poate dura câteva secunde, dar o recuperare poate dura ani.
+            </blockquote>
+            <p class="quote-sub">Prevenția acasă este cel mai sigur tratament.</p>
         </div>
     </section>
 
-    <!-- FEREASTRA MODAL (POP-UP CALM) PENTRU "SOLICITA EVALUARE GRATUITA" -->
-    <div id="evalModal" class="modal-overlay" aria-hidden="true">
-        <div class="modal-box" role="dialog" aria-labelledby="modalTitle">
-            <button type="button" class="modal-close" onclick="closeEvalModal()" aria-label="Închide">&times;</button>
+    <!-- DOVEZI / STUDII & RECENZII (CREM) -->
+    <section class="section section-cream">
+        <div class="container">
             
-            <div id="modalFormContent">
-                <span class="badge-kineto">EVALUARE GRATUITĂ LA DOMICILIU</span>
-                <h3 id="modalTitle">Solicită Evaluare Gratuită</h3>
-                <p class="modal-desc">
-                    Completează numele și numărul tău de telefon. <strong>Vei fi contactat în cel mai scurt timp de către personalul nostru</strong> pentru a stabili detaliile vizitei gratuite.
-                </p>
+            <!-- Dovezi / Date Studii -->
+            <div class="evidence-strip">
+                <div class="evidence-item">
+                    <strong>~80%</strong>
+                    <span>dintre accidentările casnice ale seniorilor au loc în baie și pe scări.</span>
+                </div>
+                <div class="evidence-item">
+                    <strong>-65%</strong>
+                    <span>reducere a riscului de alunecare prin montarea barelor de sprijin biomecanic.</span>
+                </div>
+                <div class="evidence-item">
+                    <strong>100%</strong>
+                    <span>fără griji: evaluare kineto, echipamente și montaj într-o singură vizită.</span>
+                </div>
+            </div>
 
-                <form id="quickEvalForm">
-                    <div class="input-field">
-                        <label for="evalNume">Numele și prenumele tău *</label>
-                        <input type="text" id="evalNume" required placeholder="Ex: Maria Ionescu">
-                    </div>
-                    <div class="input-field">
-                        <label for="evalTelefon">Numărul tău de telefon *</label>
-                        <input type="tel" id="evalTelefon" required placeholder="Ex: 0722 000 000">
-                    </div>
-                    <div class="gdpr-mini">
-                        <label class="checkbox-item">
-                            <input type="checkbox" required>
-                            <span>Sunt de acord să fiu contactat telefonic conform <a href="legal.html#gdpr" target="_blank">Politicii GDPR</a>.</span>
-                        </label>
-                    </div>
-                    <button type="submit" class="btn-primary btn-full">
-                        Trimite solicitarea acum
+            <div class="section-head-dark">
+                <span class="kicker-forest">DOVEZI REALE</span>
+                <h2>Familii care au ales siguranța</h2>
+            </div>
+
+            <div class="reviews-grid-3">
+                <article class="rev-card">
+                    <div class="rev-stars">★★★★★</div>
+                    <p>„Kinetoterapeutul a observat imediat cum pășește mama în baie și a montat mânerele la unghiul ideal. Au lăsat curățenie exemplară.”</p>
+                    <div class="rev-meta"><strong>Elena M.</strong> • București (Pachet Gold)</div>
+                </article>
+                <article class="rev-card">
+                    <div class="rev-stars">★★★★★</div>
+                    <p>„Balustrada de inox la scara exterioară și cadrul din baie i-au redat tatălui meu curajul să iasă singur în curte. Serviciu impecabil.”</p>
+                    <div class="rev-meta"><strong>Andrei V.</strong> • Otopeni, Ilfov (Pachet Platinum)</div>
+                </article>
+                <article class="rev-card">
+                    <div class="rev-stars">★★★★★</div>
+                    <p>„S-au deplasat rapid în Ploiești. Evaluarea gratuită ne-a scutit de cumpărături greșite. Totul montat solid în mai puțin de 2 ore.”</p>
+                    <div class="rev-meta"><strong>Mihai R.</strong> • Ploiești, Prahova (Pachet Silver)</div>
+                </article>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ - INTREBARI FRECVENTE CU RASPUNSURI EXTINSE (FOREST GREEN) -->
+    <section id="faq" class="section section-forest">
+        <div class="container faq-container">
+            <div class="section-head-light">
+                <span class="kicker-gold">CLARITATE TOTALĂ</span>
+                <h2>Întrebări Frecvente (FAQ)</h2>
+            </div>
+
+            <div class="faq-accordion">
+                
+                <div class="faq-item">
+                    <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                        <span>1. Ce presupune mai exact Evaluarea Gratuită cu kinetoterapeutul?</span>
+                        <span class="faq-icon">+</span>
                     </button>
-                </form>
-            </div>
+                    <div class="faq-answer">
+                        <p>Un specialist cu experiență în kinetoterapie se deplasează gratuit la domiciliul beneficiarului (în București, Ilfov sau Prahova). Acesta evaluează gradul de mobilitate al persoanei, punctele de sprijin necesare la ridicare/așezare și structura pereților. La finalul vizitei, primiți planul exact de amplasare și oferta finală fermă, fără nicio obligație de achiziție.</p>
+                    </div>
+                </div>
 
-            <!-- Mesaj de confirmare dupa trimitere -->
-            <div id="modalSuccessMessage" class="modal-success" style="display: none;">
-                <div class="success-icon">✓</div>
-                <h3>Solicitarea ta este pregătită!</h3>
-                <p>
-                    Am deschis aplicația ta de email pentru a expedia numărul de telefon către echipa HOLDIS MOBILITY. 
-                    <strong>Vei fi contactat în cel mai scurt timp de către personalul nostru!</strong>
-                </p>
-                <button type="button" class="btn-secondary" onclick="closeEvalModal()">Închide fereastra</button>
+                <div class="faq-item">
+                    <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                        <span>2. Pereții din baie au faianță sau gips-carton. Se pot monta mânerele în siguranță?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Da. Folosim carote diamantate pentru a găuri faianța sau gresia fără a o fisura, iar în funcție de structura din spate (beton, cărămidă cu goluri, BCA sau gips-carton ranforsat) utilizăm ancore chimice sau dibluri speciale de mare tonaj, testate la tracțiune intensă.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                        <span>3. Cât durează montajul și ce rămâne în urmă?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Un pachet Silver sau Gold se montează de regulă în 1,5 – 3 ore. Echipa noastră folosește aspiratoare profesionale în timpul găuririi și realizează curățenia completă la final. Baia și restul locuinței rămân curate și pot fi folosite imediat.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                        <span>4. Putem modifica pachetele sau comanda doar anumite produse?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Desigur. Pe lângă pachetele Silver, Gold și Platinum, aveți la dispoziție Pachetul Personalizat și pagina noastră de Configurare Dinamică, unde puteți selecta exact cantitatea și tipul elementelor dorite (de exemplu, doar 3 mânere de baie și o balustradă exterioară).</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                        <span>5. În ce județe și localități vă deplasați?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Acoperim integral municipiul București (toate sectoarele), județul Ilfov și județul Prahova (inclusiv Ploiești, Câmpina, Breaza, Sinaia și localitățile limitrofe).</p>
+                    </div>
+                </div>
+
             </div>
+        </div>
+    </section>
+
+    <!-- MODAL RAPID PENTRU CERERE PACHET / EVALUARE -->
+    <div class="modal-backdrop" id="quickRequestModal" aria-hidden="true">
+        <div class="modal-card">
+            <button type="button" class="modal-close-x" onclick="closeQuickEvalModal()">&times;</button>
+            <span class="kicker-forest" id="modalSelectedPkgLabel">EVALUARE GRATUITĂ</span>
+            <h3>Lasă-ne datele de contact</h3>
+            <p>Completează numele și numărul de telefon pentru programare.</p>
+            <form id="quickContactForm">
+                <input type="hidden" id="quickChosenOption" value="Evaluare Gratuită">
+                <div class="form-field">
+                    <label for="qNume">Nume și prenume *</label>
+                    <input type="text" id="qNume" required placeholder="Ex: Popescu Andrei">
+                </div>
+                <div class="form-field">
+                    <label for="qTelefon">Telefon *</label>
+                    <input type="tel" id="qTelefon" required placeholder="Ex: 0722 000 000">
+                </div>
+                <div class="form-field">
+                    <label for="qZona">Zona (București / Ilfov / Prahova) *</label>
+                    <input type="text" id="qZona" required placeholder="Ex: Sector 2, București">
+                </div>
+                <button type="submit" class="btn-submit-forest">Trimite solicitarea</button>
+            </form>
         </div>
     </div>
 
-    <!-- FOOTER CU PARTEA LEGALA PENTRU ROMANIA -->
+    <!-- POP-UP CENTRAL "MULTUMIM, VA VOM CAUTA IN SCURT TIMP" -->
+    <div class="modal-backdrop" id="thankYouModal" aria-hidden="true">
+        <div class="modal-card thank-you-card">
+            <div class="ty-check-circle">✓</div>
+            <h3>Mulțumim, vă vom căuta în scurt timp</h3>
+            <p>Solicitarea dumneavoastră a fost înregistrată. Un specialist Holdis Mobility vă va contacta telefonic.</p>
+            <button type="button" class="btn-submit-forest" onclick="closeThankYouModal()">Închide</button>
+        </div>
+    </div>
+
+    <!-- WIDGET WHATSAPP FIX DREAPTA-JOS -->
+    <a href="https://wa.me/40722000000?text=Bun%C4%83%20ziua!%20Doresc%20mai%20multe%20detalii%20despre%20Holdis%20Mobility." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactează-ne pe WhatsApp">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+        <span class="wa-tooltip">WhatsApp Direct</span>
+    </a>
+
+    <!-- FOOTER LEGAL ROMANIA -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <div class="brand-logo footer-brand">
-                        <img src="logo.png" alt="Logo" class="logo-img-footer" onerror="this.src='https://placehold.co/80x80/FFFFFF/2B4C59?text=HM'">
-                        <div class="logo-text">
-                            <span class="logo-main">HOLDIS</span>
-                            <span class="logo-sub">MOBILITY</span>
-                        </div>
+                    <div class="logo-text footer-logo-text">
+                        <span class="logo-main">HOLDIS</span>
+                        <span class="logo-sub">MOBILITY</span>
                     </div>
-                    <p>Evaluare gratuită realizată de personal cu experiență în kinetoterapie, furnizare completă de produse și montaj fără griji.</p>
-                    <p class="footer-admin-link">
-                        <a href="mailto:contact@holdismobility.ro" class="admin-mail-pill footer-pill">✉ contact@holdismobility.ro</a>
-                    </p>
+                    <p>Sisteme de sprijin pentru seniori, asistate de kinetoterapeut. Acoperire: București, Ilfov, Prahova.</p>
                 </div>
-
                 <div class="footer-col">
-                    <h4>Date identificare societate</h4>
-                    <ul class="legal-list">
-                        <li><strong>Denumire:</strong> SC HOLDIS MOBILITY SRL <em>(înlocuiește cu numele real)</em></li>
-                        <li><strong>CUI / CIF:</strong> RO12345678</li>
-                        <li><strong>Nr. Reg. Com. (ONRC):</strong> J40/1234/2026</li>
-                        <li><strong>Sediu social:</strong> Str. Exemplului Nr. 10, Localitate, Județ</li>
-                        <li><strong>Capital social:</strong> 200 LEI</li>
+                    <h4>Date Societate</h4>
+                    <ul class="footer-list">
+                        <li>SC HOLDIS MOBILITY SRL</li>
+                        <li>CUI: RO12345678 | J40/1234/2026</li>
+                        <li>Sediu: București, România</li>
+                        <li>Email: <a href="mailto:contact@holdismobility.ro">contact@holdismobility.ro</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-col">
-                    <h4>Informații legale & ANPC</h4>
-                    <ul class="footer-links">
+                    <h4>Informații Legale</h4>
+                    <ul class="footer-list">
                         <li><a href="legal.html#termeni">Termeni și Condiții</a></li>
-                        <li><a href="legal.html#gdpr">Politica de Confidențialitate (GDPR)</a></li>
-                        <li><a href="legal.html#cookies">Politica de Cookies</a></li>
-                        <li><a href="https://anpc.ro/" target="_blank" rel="noopener noreferrer">ANPC - Protecția Consumatorilor</a></li>
-                        <li><a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer">ANPC - Soluționarea Alternativă a Litigiilor (SAL)</a></li>
-                        <li><a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">Platforma Europeană SOL</a></li>
+                        <li><a href="legal.html#gdpr">Politica GDPR</a></li>
+                        <li><a href="legal.html#cookies">Politica Cookies</a></li>
+                        <li><a href="https://anpc.ro/" target="_blank" rel="noopener">ANPC</a> | <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener">SAL</a> | <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">SOL</a></li>
                     </ul>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; <span class="currentYear"></span> HOLDIS MOBILITY. Toate drepturile rezervate.</p>
+                &copy; <span class="currentYear"></span> HOLDIS MOBILITY. Toate drepturile rezervate.
             </div>
         </div>
     </footer>

@@ -1,179 +1,185 @@
 // ==========================================================================
-// ADRESA DE EMAIL A ADMINISTRATORULUI (Schimba cu adresa ta reala!)
+// CONFIGURARE DATE CONTACT (Schimba cu emailul si numarul tau real)
 // ==========================================================================
 const ADMIN_EMAIL = "contact@holdismobility.ro";
 
-// 1. Actualizeaza anul curent in toate subsolurile paginilor
+// Seteaza anul curent in footer
 document.querySelectorAll(".currentYear").forEach(el => {
     el.textContent = new Date().getFullYear();
 });
 
-// 2. Deschiderea si inchiderea ferestrei "Solicita Evaluare Gratuita"
-function openEvalModal() {
-    const modal = document.getElementById("evalModal");
+// 1. Meniul Hamburger (Stanga)
+function toggleDrawerMenu() {
+    const drawer = document.getElementById("sideDrawer");
+    const overlay = document.getElementById("drawerOverlay");
+    if (drawer && overlay) {
+        drawer.classList.toggle("open");
+        overlay.classList.toggle("open");
+    }
+}
+
+// 2. Deschidere Modal Rapid pentru Pachete sau Evaluare Gratuita
+function openQuickEvalModal() {
+    triggerPackageInterest("Evaluare Gratuită cu Kinetoterapeut");
+}
+
+function triggerPackageInterest(optionTitle) {
+    const modal = document.getElementById("quickRequestModal");
+    const label = document.getElementById("modalSelectedPkgLabel");
+    const hiddenInput = document.getElementById("quickChosenOption");
     if (modal) {
-        document.getElementById("modalFormContent").style.display = "block";
-        document.getElementById("modalSuccessMessage").style.display = "none";
+        if (label) label.textContent = optionTitle;
+        if (hiddenInput) hiddenInput.value = optionTitle;
         modal.classList.add("open");
     }
 }
 
-function closeEvalModal() {
-    const modal = document.getElementById("evalModal");
-    if (modal) {
-        modal.classList.remove("open");
+function closeQuickEvalModal() {
+    const modal = document.getElementById("quickRequestModal");
+    if (modal) modal.classList.remove("open");
+}
+
+// 3. Afisare si inchidere Pop-up central: "Mulțumim, vă vom căuta în scurt timp"
+function showThankYouModal() {
+    closeQuickEvalModal();
+    const tyModal = document.getElementById("thankYouModal");
+    if (tyModal) {
+        tyModal.classList.add("open");
     }
 }
 
-// Inchide fereastra daca utilizatorul da click pe fundalul intunecat
-window.addEventListener("click", function (event) {
-    const modal = document.getElementById("evalModal");
-    if (event.target === modal) {
-        closeEvalModal();
+function closeThankYouModal() {
+    const tyModal = document.getElementById("thankYouModal");
+    if (tyModal) {
+        tyModal.classList.remove("open");
     }
-});
+}
 
-// 3. Trimiterea formularului rapid "Solicita Evaluare Gratuita" (Nume + Telefon)
-const quickEvalForm = document.getElementById("quickEvalForm");
-if (quickEvalForm) {
-    quickEvalForm.addEventListener("submit", function (e) {
+// 4. Trimiterea Formularului Rapid de pe prima pagina
+const quickContactForm = document.getElementById("quickContactForm");
+if (quickContactForm) {
+    quickContactForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        const nume = document.getElementById("evalNume").value.trim();
-        const telefon = document.getElementById("evalTelefon").value.trim();
+        const optiune = document.getElementById("quickChosenOption").value;
+        const nume = document.getElementById("qNume").value.trim();
+        const telefon = document.getElementById("qTelefon").value.trim();
+        const zona = document.getElementById("qZona").value.trim();
 
-        const subject = `URGENT: Solicitare Evaluare Gratuită - ${nume} (${telefon})`;
-        const body = 
+        const subject = `Solicitare ${optiune} - ${nume} (${telefon})`;
+        const body =
 `Bună ziua,
 
-O persoană a apăsat pe butonul „SOLICITĂ EVALUARE GRATUITĂ” de pe site-ul HOLDIS MOBILITY și așteaptă să fie contactată telefonic în cel mai scurt timp:
+Un client a solicitat „${optiune}” pe site-ul HOLDIS MOBILITY:
 
 • Nume: ${nume}
-• Număr de telefon: ${telefon}
+• Telefon: ${telefon}
+• Zona: ${zona}
+`;
 
-(Mesaj generat automat din formularul de Evaluare Gratuită)`;
+        // Afisam pop-up-ul cerut in mijlocul ecranului
+        showThankYouModal();
 
-        // Afisam mesajul ca va fi contactat in cel mai scurt timp de catre personal
-        document.getElementById("modalFormContent").style.display = "none";
-        document.getElementById("modalSuccessMessage").style.display = "block";
+        // Trimitem datele catre clientul de mail
+        setTimeout(() => {
+            window.location.href = `mailto:${ADMIN_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }, 400);
 
-        // Trimitem catre adresa de mail a administratorului
-        window.location.href = `mailto:${ADMIN_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        quickContactForm.reset();
     });
 }
 
-// 4. Logica pentru pagina separata "configurator.html"
-function applyPackageItems(packageName) {
-    const checkboxes = document.querySelectorAll('input[name="elemente"]');
-    if (!checkboxes.length) return;
-
-    checkboxes.forEach(cb => cb.checked = false);
-
-    const silverItems = [
-        "2 mânere de sprijin în baie",
-        "Taburet de duș",
-        "Cadru de sprijin pentru toaletă",
-        "Covoraș antiderapant"
-    ];
-
-    const goldItems = [
-        ...silverItems,
-        "Mână curentă de până la 1,5 m (interior)",
-        "Mâner de sprijin lângă pat",
-        "Organizarea cablurilor existente",
-        "Reorganizarea mobilierului"
-    ];
-
-    const platinumItems = [
-        ...goldItems,
-        "Balustradă inox de până la 2 m (scară exterioară)"
-    ];
-
-    let itemsToSelect = [];
-
-    if (packageName === "Silver") {
-        const r = document.getElementById("radio-silver");
-        if (r) r.checked = true;
-        itemsToSelect = silverItems;
-    } else if (packageName === "Gold") {
-        const r = document.getElementById("radio-gold");
-        if (r) r.checked = true;
-        itemsToSelect = goldItems;
-    } else if (packageName === "Platinum") {
-        const r = document.getElementById("radio-platinum");
-        if (r) r.checked = true;
-        itemsToSelect = platinumItems;
+// 5. FAQ Accordion pe pagina principala
+function toggleFaq(buttonEl) {
+    const item = buttonEl.closest(".faq-item");
+    const icon = buttonEl.querySelector(".faq-icon");
+    if (item) {
+        const isOpen = item.classList.toggle("open");
+        if (icon) icon.textContent = isOpen ? "−" : "+";
     }
+}
 
-    checkboxes.forEach(cb => {
-        if (itemsToSelect.includes(cb.value)) {
-            cb.checked = true;
+// 6. Logica pentru Configuratorul Dinamic (configurator.html)
+function changeQty(inputId, delta) {
+    const input = document.getElementById(inputId);
+    if (!input) return;
+    let current = parseInt(input.value, 10) || 0;
+    let next = current + delta;
+    if (next < 0) next = 0;
+    if (next > 10) next = 10;
+    input.value = next;
+    updateDynamicSummary();
+}
+
+function updateDynamicSummary() {
+    const summaryList = document.getElementById("dynamicSummaryList");
+    if (!summaryList) return;
+
+    let items = ["✓ Evaluare Gratuită la Domiciliu cu Kinetoterapeut"];
+
+    // Preluam cantitatile > 0
+    const qtyInputs = document.querySelectorAll(".qty-controls input[type='number']");
+    qtyInputs.forEach(inp => {
+        const count = parseInt(inp.value, 10) || 0;
+        const label = inp.getAttribute("data-label");
+        if (count > 0) {
+            items.push(`• ${count} x ${label}`);
         }
     });
+
+    // Preluam checkbox-urile suplimentare
+    const extraChecks = document.querySelectorAll("input[name='dyn_item']:checked:not(:disabled)");
+    extraChecks.forEach(chk => {
+        items.push(`• ${chk.value}`);
+    });
+
+    summaryList.innerHTML = items.map(i => `<li>${i}</li>`).join("");
 }
 
-// Daca utilizatorul vine din pagina Pachete sau Tabel (ex: configurator.html?pachet=Gold), bifam automat pachetul!
-window.addEventListener("DOMContentLoaded", function () {
-    const params = new URLSearchParams(window.location.search);
-    const chosenPkg = params.get("pachet");
-    if (chosenPkg) {
-        applyPackageItems(chosenPkg);
-    }
-});
+// Trimiterea formularului din Configuratorul Dinamic
+const dynamicConfigForm = document.getElementById("dynamicConfigForm");
+if (dynamicConfigForm) {
+    dynamicConfigForm.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-// 5. Trimiterea formularului detaliat din "configurator.html"
-const customForm = document.getElementById("customPackageForm");
-if (customForm) {
-    customForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+        const nume = document.getElementById("cNume").value.trim();
+        const telefon = document.getElementById("cTelefon").value.trim();
+        const localitate = document.getElementById("cLocalitate").value.trim();
+        const detalii = document.getElementById("cDetalii").value.trim() || "Fără observații.";
 
-        const pachetBaza = document.querySelector('input[name="pachet_baza"]:checked').value;
-        const checkedBoxes = document.querySelectorAll('input[name="elemente"]:checked');
-        
-        let elementeSelectate = [];
-        checkedBoxes.forEach(box => elementeSelectate.push("- " + box.value));
+        const listItems = Array.from(document.querySelectorAll("#dynamicSummaryList li"))
+            .map(li => li.textContent)
+            .join("\n");
 
-        const listaElementeText = elementeSelectate.length > 0 
-            ? elementeSelectate.join("\n") 
-            : "- Niciun produs individual bifat (se dorește recomandarea specialistului la evaluare)";
-
-        const nume = document.getElementById("nume").value.trim();
-        const telefon = document.getElementById("telefon").value.trim();
-        const localitate = document.getElementById("localitate").value.trim();
-        const emailClient = document.getElementById("email_client").value.trim() || "Nespecificat";
-        const mesaj = document.getElementById("mesaj").value.trim() || "Fără observații suplimentare.";
-
-        const subject = `Configurație Pachet & Evaluare HOLDIS MOBILITY - ${nume} (${telefon})`;
-        const body = 
+        const subject = `Configurație Dinamică HOLDIS MOBILITY - ${nume} (${telefon})`;
+        const body =
 `Bună ziua,
 
-Un client a configurat un pachet pe site-ul HOLDIS MOBILITY și așteaptă să fie contactat în cel mai scurt timp:
+Un client a trimis o configurație dinamică de pe site-ul HOLDIS MOBILITY:
 
 =========================================
-DATE DE CONTACT CLIENT:
+DATE DE CONTACT:
 =========================================
 • Nume: ${nume}
 • Telefon: ${telefon}
-• Localitate / Județ: ${localitate}
-• Email: ${emailClient}
+• Localitate: ${localitate}
 
 =========================================
-CONFIGURAȚIA ALEASĂ:
+ELEMENTE CONFIGURATE:
 =========================================
-• Pachet de bază: ${pachetBaza}
-
-Produse și servicii bifate:
-${listaElementeText}
+${listItems}
 
 =========================================
-DETALII SUPLIMENTARE:
+OBSERVAȚII:
 =========================================
-${mesaj}
+${detalii}
 `;
 
-        const banner = document.getElementById("configSuccessBanner");
-        if (banner) banner.style.display = "block";
+        // Afisam pop-up-ul central cu mesajul "Mulțumim, vă vom căuta în scurt timp"
+        showThankYouModal();
 
-        window.location.href = `mailto:${ADMIN_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        setTimeout(() => {
+            window.location.href = `mailto:${ADMIN_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }, 400);
     });
 }
