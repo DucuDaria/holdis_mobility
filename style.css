@@ -1,19 +1,19 @@
 /* ==========================================================================
-   PALETA FOREST GREEN & CREM / ALB + FONTURI ESTETICE (HOLDIS MOBILITY)
+   STYLE.CSS REPARAT - ALINIERE SIMETRICA & PROPORTII CURATE (HOLDIS MOBILITY)
    ========================================================================== */
 :root {
-    --forest-dark: #142E24;      /* Forest Green profund */
-    --forest-mid: #1F4738;       /* Forest Green secundar */
-    --forest-light: #E4EFEA;     /* Ton deschis de salvie/verde */
-    --cream-bg: #F9F8F3;         /* Crem cald si luminos */
+    --forest-dark: #142E24;
+    --forest-mid: #1F4738;
+    --forest-light: #E8F0EC;
+    --cream-bg: #F8F7F2;
     --white: #FFFFFF;
-    --gold-accent: #C89D54;      /* Accent cald nobil */
+    --gold-accent: #C89D54;
     --whatsapp-green: #25D366;
-    --text-dark: #12211B;
-    --text-muted: #52635B;
-    --border-soft: #D8E0DC;
+    --text-dark: #14221C;
+    --text-muted: #53645C;
+    --border-soft: #DCE4E0;
     --radius: 16px;
-    --shadow-soft: 0 12px 32px rgba(20, 46, 36, 0.08);
+    --shadow-soft: 0 10px 30px rgba(20, 46, 36, 0.07);
     --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-serif: 'Playfair Display', Georgia, serif;
 }
@@ -33,33 +33,34 @@ body {
     background-color: var(--cream-bg);
     color: var(--text-dark);
     line-height: 1.6;
-    font-size: 17px;
+    font-size: 16px;
+    overflow-x: hidden;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1240px;
+    width: 100%;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 28px;
 }
 
 /* ==========================================================================
-   HEADER ALB: HAMBURGER IN STANGA, LOGO IN DREAPTA
+   1. HEADER ALB (SIMETRIC: HAMBURGER STANGA / LOGO DREAPTA)
    ========================================================================== */
 .site-header {
     background-color: var(--white);
-    color: var(--forest-dark);
     position: sticky;
     top: 0;
     z-index: 200;
     border-bottom: 1px solid var(--border-soft);
-    box-shadow: 0 4px 20px rgba(20, 46, 36, 0.05);
+    box-shadow: 0 2px 16px rgba(20, 46, 36, 0.05);
 }
 
 .header-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 78px;
+    height: 80px;
 }
 
 .hamburger-btn {
@@ -72,7 +73,8 @@ body {
     padding: 10px 18px;
     border-radius: 10px;
     cursor: pointer;
-    transition: all 0.2s;
+    font-family: inherit;
+    transition: all 0.2s ease;
 }
 
 .hamburger-btn:hover {
@@ -84,7 +86,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    width: 22px;
+    width: 20px;
 }
 
 .ham-Lines span {
@@ -97,15 +99,14 @@ body {
 
 .ham-label {
     font-weight: 700;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
+    font-size: 0.92rem;
     color: var(--forest-dark);
 }
 
 .brand-logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     text-decoration: none;
     text-align: right;
 }
@@ -117,14 +118,14 @@ body {
 }
 
 .logo-main {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 800;
     letter-spacing: 2px;
     color: var(--forest-dark);
 }
 
 .logo-sub {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 800;
     letter-spacing: 3.5px;
     color: var(--gold-accent);
@@ -139,12 +140,13 @@ body {
 }
 
 /* ==========================================================================
-   SIDE DRAWER MENU
+   2. MENIU LATERAL (DRAWER)
    ========================================================================== */
 .drawer-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(10, 24, 19, 0.65);
+    background: rgba(10, 24, 19, 0.6);
+    backdrop-filter: blur(2px);
     z-index: 300;
     display: none;
 }
@@ -156,8 +158,8 @@ body {
 .side-drawer {
     position: fixed;
     top: 0;
-    left: -320px;
-    width: 300px;
+    left: -340px;
+    width: 310px;
     height: 100vh;
     background-color: var(--forest-dark);
     color: var(--white);
@@ -166,7 +168,7 @@ body {
     display: flex;
     flex-direction: column;
     transition: left 0.3s ease;
-    box-shadow: 8px 0 30px rgba(0, 0, 0, 0.35);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.3);
 }
 
 .side-drawer.open {
@@ -177,12 +179,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 20px;
+    padding-bottom: 18px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .drawer-title {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: var(--gold-accent);
@@ -201,15 +203,15 @@ body {
 .drawer-nav {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-top: 24px;
+    gap: 6px;
+    margin-top: 22px;
     flex-grow: 1;
 }
 
 .drawer-nav a {
     color: #E2ECE8;
     text-decoration: none;
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 600;
     padding: 12px 14px;
     border-radius: 10px;
@@ -224,17 +226,17 @@ body {
 
 .drawer-footer {
     border-top: 1px solid rgba(255, 255, 255, 0.12);
-    padding-top: 20px;
+    padding-top: 18px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 .btn-whatsapp-full {
     display: block;
     text-align: center;
     background-color: var(--whatsapp-green);
-    color: #092413;
+    color: #082212;
     font-weight: 700;
     text-decoration: none;
     padding: 12px;
@@ -243,17 +245,17 @@ body {
 
 .drawer-mail {
     color: #B9CCC4;
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     text-decoration: none;
     text-align: center;
 }
 
 /* ==========================================================================
-   HERO COVER CU STIL DE SCRIS ESTETIC / EDITORIAL
+   3. HERO COVER (ALINIAT CORECT CU CONTAINERUL)
    ========================================================================== */
 .hero-cover {
     position: relative;
-    min-height: 560px;
+    min-height: 540px;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -262,16 +264,14 @@ body {
 
 .hero-overlay {
     width: 100%;
-    min-height: 560px;
+    min-height: 540px;
     display: flex;
     align-items: center;
-    background: linear-gradient(90deg, rgba(16, 38, 30, 0.94) 0%, rgba(20, 46, 36, 0.78) 50%, rgba(20, 46, 36, 0.2) 100%);
+    background: linear-gradient(90deg, rgba(16, 38, 30, 0.94) 0%, rgba(20, 46, 36, 0.82) 48%, rgba(20, 46, 36, 0.25) 100%);
     padding: 72px 0;
 }
 
 .hero-content-left {
-    max-width: 670px;
-    margin-left: max(24px, calc((100vw - 1200px) / 2 + 24px));
     color: var(--white);
 }
 
@@ -279,55 +279,54 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 }
 
 .badge-line {
-    width: 38px;
+    width: 36px;
     height: 2px;
     background-color: var(--gold-accent);
     display: inline-block;
 }
 
 .hero-kicker {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     font-weight: 800;
-    letter-spacing: 4px;
+    letter-spacing: 3.5px;
     color: var(--gold-accent);
     text-transform: uppercase;
 }
 
 .hero-aesthetic-title {
     font-family: var(--font-serif);
-    font-size: 3.6rem;
-    line-height: 1.14;
+    font-size: 3.4rem;
+    line-height: 1.15;
     font-weight: 600;
-    letter-spacing: -0.5px;
-    margin-bottom: 34px;
-    color: #FFFFFF;
-    text-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+    max-width: 640px;
+    margin-bottom: 32px;
+    color: var(--white);
 }
 
 .hero-aesthetic-title em {
     font-style: italic;
-    font-weight: 600;
     color: #F3DFBA;
     display: block;
+    margin-top: 4px;
 }
 
 .btn-hero-whatsapp {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     background-color: var(--whatsapp-green);
     color: #082212;
-    font-size: 1.08rem;
+    font-size: 1.05rem;
     font-weight: 800;
-    padding: 16px 34px;
+    padding: 15px 32px;
     border-radius: 50px;
     text-decoration: none;
-    box-shadow: 0 10px 28px rgba(37, 211, 102, 0.35);
-    transition: transform 0.2s, background-color 0.2s;
+    box-shadow: 0 10px 24px rgba(37, 211, 102, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .btn-hero-whatsapp:hover {
@@ -336,10 +335,10 @@ body {
 }
 
 /* ==========================================================================
-   TRANZITII SECTIUNI: CREM vs FOREST GREEN
+   4. SECTIUNI GENERALE & TITLURI
    ========================================================================== */
 .section {
-    padding: 76px 0;
+    padding: 80px 0;
 }
 
 .section-cream {
@@ -348,33 +347,34 @@ body {
 }
 
 .section-forest {
-    background: linear-gradient(180deg, var(--forest-dark) 0%, #19382C 100%);
+    background: linear-gradient(180deg, var(--forest-dark) 0%, #18362B 100%);
     color: var(--white);
 }
 
 .section-head-dark,
 .section-head-light {
     text-align: center;
-    max-width: 700px;
-    margin: 0 auto 44px;
+    max-width: 720px;
+    margin: 0 auto 48px;
 }
 
 .section-head-dark h1,
 .section-head-dark h2 {
-    font-size: 2.3rem;
+    font-size: 2.25rem;
+    font-weight: 800;
     color: var(--forest-dark);
-    margin-top: 6px;
-    letter-spacing: -0.5px;
+    margin-top: 8px;
 }
 
 .section-head-light h2 {
-    font-size: 2.3rem;
+    font-size: 2.25rem;
+    font-weight: 800;
     color: var(--white);
-    margin-top: 6px;
+    margin-top: 8px;
 }
 
 .kicker-forest {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 800;
     letter-spacing: 2.5px;
     color: var(--forest-mid);
@@ -382,7 +382,7 @@ body {
 }
 
 .kicker-gold {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 800;
     letter-spacing: 2.5px;
     color: var(--gold-accent);
@@ -390,13 +390,14 @@ body {
 }
 
 /* ==========================================================================
-   PACHETE DE SPRIJIN
+   5. PACHETE DE SPRIJIN (4 COLOANE FIXE PE DESKTOP - FARA CARDURI CAZUTE)
    ========================================================================== */
 .packages-grid-4 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
     margin-bottom: 56px;
+    align-items: stretch;
 }
 
 .pkg-card {
@@ -408,6 +409,11 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
+    transition: transform 0.2s ease;
+}
+
+.pkg-card:hover {
+    transform: translateY(-4px);
 }
 
 .pkg-featured {
@@ -420,15 +426,15 @@ body {
     right: 12px;
     background-color: var(--gold-accent);
     color: var(--forest-dark);
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 800;
-    padding: 4px 12px;
+    padding: 4px 10px;
     border-radius: 20px;
     z-index: 2;
 }
 
 .pkg-img-box {
-    height: 185px;
+    height: 175px;
     position: relative;
     background-color: var(--forest-light);
 }
@@ -437,6 +443,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .pkg-custom-visual {
@@ -447,19 +454,19 @@ body {
 }
 
 .custom-icon-large {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
 }
 
 .pkg-badge {
     position: absolute;
-    bottom: 12px;
-    left: 14px;
+    bottom: 10px;
+    left: 12px;
     background-color: var(--forest-dark);
     color: var(--white);
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 1.5px;
-    padding: 4px 12px;
+    padding: 4px 10px;
     border-radius: 6px;
 }
 
@@ -469,22 +476,25 @@ body {
 }
 
 .pkg-content {
-    padding: 22px;
+    padding: 22px 20px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
 .pkg-content h3 {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     color: var(--forest-dark);
+    font-weight: 800;
 }
 
 .pkg-price {
-    font-size: 1.55rem;
+    font-size: 1.45rem;
     font-weight: 800;
     color: var(--forest-mid);
     margin: 6px 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-soft);
 }
 
 .pkg-list {
@@ -494,23 +504,24 @@ body {
 }
 
 .pkg-list li {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     margin-bottom: 9px;
     color: var(--text-dark);
-    line-height: 1.45;
+    line-height: 1.4;
 }
 
 .btn-pkg-select,
 .btn-pkg-custom {
     width: 100%;
-    padding: 13px;
+    padding: 12px;
     border-radius: 10px;
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
     border: none;
+    font-family: inherit;
     background-color: var(--forest-dark);
     color: var(--white);
     transition: background 0.2s;
@@ -525,54 +536,56 @@ body {
     background-color: var(--forest-mid);
 }
 
-/* PASII FARA TEXT DEASUPRA */
+/* CEI 3 PASI ALINIATI EXACT SUB PACHETE */
 .steps-clean-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
 .step-clean-box {
-    background-color: var(--forest-light);
+    background-color: var(--white);
     padding: 26px;
     border-radius: var(--radius);
+    border: 1px solid var(--border-soft);
     border-left: 5px solid var(--forest-dark);
+    box-shadow: var(--shadow-soft);
 }
 
 .step-clean-number {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 900;
-    color: var(--forest-mid);
-    letter-spacing: 1px;
+    color: var(--gold-accent);
+    letter-spacing: 1.5px;
 }
 
 .step-clean-box h4 {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     color: var(--forest-dark);
-    margin: 4px 0 6px;
+    margin: 6px 0;
 }
 
 .step-clean-box p {
-    font-size: 0.93rem;
+    font-size: 0.92rem;
     color: var(--text-muted);
 }
 
 /* ==========================================================================
-   CITAT & STUDII (MUTATE IMEDIAT DUPA PACHETE, PE FUNDAL FOREST GREEN)
+   6. CITAT & STUDII (3 COLOANE EGALE)
    ========================================================================== */
 .quote-and-studies {
-    padding: 72px 0;
+    padding: 76px 0;
 }
 
 .quote-inner {
-    max-width: 850px;
+    max-width: 820px;
     margin: 0 auto 48px;
     text-align: center;
 }
 
 .quote-mark {
     font-family: var(--font-serif);
-    font-size: 4.5rem;
+    font-size: 4rem;
     line-height: 0.5;
     color: var(--gold-accent);
     display: block;
@@ -581,24 +594,24 @@ body {
 
 .quote-inner blockquote {
     font-family: var(--font-serif);
-    font-size: 2.2rem;
+    font-size: 2.1rem;
     font-weight: 600;
     font-style: italic;
-    line-height: 1.28;
-    margin-bottom: 14px;
+    line-height: 1.3;
+    margin-bottom: 12px;
     color: var(--white);
 }
 
 .quote-sub {
     color: var(--gold-accent);
     font-weight: 600;
-    font-size: 1.02rem;
+    font-size: 1rem;
 }
 
 .evidence-strip-forest {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 22px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
 }
 
 .evidence-box-forest {
@@ -611,20 +624,20 @@ body {
 
 .evidence-box-forest strong {
     display: block;
-    font-size: 2.6rem;
+    font-size: 2.5rem;
     color: var(--gold-accent);
     font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .evidence-box-forest span {
-    font-size: 0.95rem;
+    font-size: 0.94rem;
     color: #E2ECE8;
 }
 
 /* ==========================================================================
-   DE CE SA NE ALEGI? (PE FUNDAL CREM PENTRU CONTRAST ALTERNATIV)
+   7. DE CE SA NE ALEGI? (5 COLOANE ALINIATE PERFECT PE UN RAND)
    ========================================================================== */
 .kineto-highlight-light {
     background: var(--white);
@@ -633,36 +646,37 @@ body {
     padding: 28px 32px;
     display: flex;
     align-items: center;
-    gap: 22px;
-    margin-bottom: 36px;
+    gap: 24px;
+    margin-bottom: 32px;
     box-shadow: var(--shadow-soft);
 }
 
 .kineto-icon {
-    font-size: 2.8rem;
+    font-size: 2.6rem;
+    flex-shrink: 0;
 }
 
 .kineto-info h3 {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     color: var(--forest-dark);
     margin-bottom: 6px;
 }
 
 .kineto-info p {
     color: var(--text-muted);
-    font-size: 1rem;
+    font-size: 0.98rem;
 }
 
 .why-grid-5 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
 }
 
 .why-light-card {
     background: var(--white);
     border: 1px solid var(--border-soft);
-    padding: 24px 20px;
+    padding: 22px 18px;
     border-radius: var(--radius);
     box-shadow: var(--shadow-soft);
 }
@@ -670,27 +684,28 @@ body {
 .why-num {
     color: var(--gold-accent);
     font-weight: 800;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
 }
 
 .why-light-card h4 {
-    font-size: 1.12rem;
+    font-size: 1.05rem;
     color: var(--forest-dark);
     margin: 8px 0;
 }
 
 .why-light-card p {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--text-muted);
+    line-height: 1.45;
 }
 
 /* ==========================================================================
-   ARIA DE ACOPERIRE: DESIGN ARHITECTURAL, DINAMIC SI DE IMPACT
+   8. ARIA DE ACOPERIRE (3 COLOANE SIMETRICE)
    ========================================================================== */
 .coverage-dynamic-wrap {
     display: flex;
     flex-direction: column;
-    gap: 36px;
+    gap: 32px;
 }
 
 .coverage-header-row {
@@ -700,31 +715,31 @@ body {
     gap: 24px;
     flex-wrap: wrap;
     border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-    padding-bottom: 28px;
+    padding-bottom: 24px;
 }
 
 .coverage-header-row h2 {
-    font-size: 2.4rem;
+    font-size: 2.25rem;
     color: var(--white);
-    margin: 6px 0 10px;
+    margin: 6px 0 8px;
 }
 
 .coverage-lead {
     max-width: 680px;
     color: #CDE0D8;
-    font-size: 1.02rem;
+    font-size: 0.98rem;
 }
 
 .coverage-live-pill {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: rgba(37, 211, 102, 0.14);
+    background: rgba(37, 211, 102, 0.15);
     border: 1px solid rgba(37, 211, 102, 0.45);
     color: #E8FFF0;
     padding: 10px 18px;
     border-radius: 50px;
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     font-weight: 700;
 }
 
@@ -733,35 +748,21 @@ body {
     height: 10px;
     border-radius: 50%;
     background-color: var(--whatsapp-green);
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-    animation: pulseGlow 2s infinite;
-}
-
-@keyframes pulseGlow {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-    70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
 .coverage-cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
 .region-card {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 18px;
-    padding: 30px 26px;
+    border-radius: var(--radius);
+    padding: 28px 24px;
     display: flex;
     flex-direction: column;
-    transition: transform 0.25s ease, border-color 0.25s ease;
-}
-
-.region-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--gold-accent);
 }
 
 .region-card-featured {
@@ -777,18 +778,18 @@ body {
 }
 
 .region-code {
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 800;
     letter-spacing: 2px;
     color: var(--gold-accent);
 }
 
 .region-badge {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.12);
     color: var(--white);
-    padding: 4px 12px;
+    padding: 4px 10px;
     border-radius: 20px;
 }
 
@@ -798,40 +799,39 @@ body {
 }
 
 .region-card h3 {
-    font-size: 1.85rem;
+    font-size: 1.7rem;
     font-weight: 800;
-    letter-spacing: 1px;
     color: var(--white);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .region-desc {
     color: #C9DDD4;
-    font-size: 0.94rem;
-    margin-bottom: 22px;
+    font-size: 0.92rem;
+    margin-bottom: 20px;
     flex-grow: 1;
 }
 
 .region-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
 }
 
 .region-tags span {
-    background: rgba(12, 28, 22, 0.55);
+    background: rgba(12, 28, 22, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.12);
     color: #E6F0EC;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 600;
-    padding: 5px 11px;
-    border-radius: 8px;
+    padding: 4px 10px;
+    border-radius: 6px;
 }
 
 .coverage-bottom-bar {
     background: var(--white);
     color: var(--forest-dark);
-    padding: 24px 30px;
+    padding: 22px 28px;
     border-radius: var(--radius);
     display: flex;
     justify-content: space-between;
@@ -846,12 +846,11 @@ body {
 }
 
 .cbb-text strong {
-    font-size: 1.15rem;
-    color: var(--forest-dark);
+    font-size: 1.1rem;
 }
 
 .cbb-text span {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     color: var(--text-muted);
 }
 
@@ -859,24 +858,20 @@ body {
     background-color: var(--forest-dark);
     color: var(--white);
     border: none;
-    padding: 14px 26px;
+    padding: 13px 24px;
     border-radius: 10px;
-    font-weight: 800;
-    font-size: 0.95rem;
+    font-weight: 700;
+    font-size: 0.92rem;
     cursor: pointer;
-    transition: background 0.2s;
-}
-
-.btn-coverage-cta:hover {
-    background-color: var(--forest-mid);
+    font-family: inherit;
 }
 
 /* ==========================================================================
-   RECENZII SI FAQ ACCORDION
+   9. RECENZII (3 COLOANE) & FAQ
    ========================================================================== */
 .reviews-grid-3 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
@@ -886,21 +881,25 @@ body {
     border-radius: var(--radius);
     border: 1px solid var(--border-soft);
     box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .rev-stars {
     color: var(--gold-accent);
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     margin-bottom: 10px;
 }
 
 .rev-card p {
     font-style: italic;
     margin-bottom: 16px;
+    font-size: 0.95rem;
 }
 
 .rev-meta {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
 }
 
@@ -911,7 +910,7 @@ body {
 .faq-accordion {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
 }
 
 .faq-item {
@@ -926,10 +925,11 @@ body {
     background: none;
     border: none;
     color: var(--white);
-    padding: 20px 24px;
+    padding: 18px 22px;
     text-align: left;
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 700;
+    font-family: inherit;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -937,16 +937,16 @@ body {
 }
 
 .faq-icon {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--gold-accent);
     margin-left: 16px;
 }
 
 .faq-answer {
     display: none;
-    padding: 0 24px 20px;
+    padding: 0 22px 18px;
     color: #D2E0DA;
-    font-size: 0.96rem;
+    font-size: 0.94rem;
 }
 
 .faq-item.open .faq-answer {
@@ -954,12 +954,12 @@ body {
 }
 
 /* ==========================================================================
-   CONFIGURATOR DINAMIC, TABEL, MODAL & FOOTER
+   10. CONFIGURATOR, TABEL, POP-UP, WHATSAPP & FOOTER
    ========================================================================== */
 .dynamic-config-layout {
     display: grid;
-    grid-template-columns: 1.35fr 0.85fr;
-    gap: 30px;
+    grid-template-columns: 1.4fr 0.85fr;
+    gap: 28px;
     align-items: start;
 }
 
@@ -968,14 +968,14 @@ body {
     border: 1px solid var(--border-soft);
     border-radius: var(--radius);
     padding: 26px;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     box-shadow: var(--shadow-soft);
 }
 
 .config-group-card h3 {
     color: var(--forest-dark);
-    margin-bottom: 18px;
-    font-size: 1.2rem;
+    margin-bottom: 16px;
+    font-size: 1.15rem;
 }
 
 .dynamic-check-row {
@@ -990,20 +990,20 @@ body {
 }
 
 .dynamic-check-row input {
-    transform: scale(1.25);
+    transform: scale(1.2);
     accent-color: var(--forest-dark);
 }
 
 .row-title {
     flex-grow: 1;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
 }
 
 .row-badge {
     background-color: var(--forest-light);
     color: var(--forest-dark);
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-weight: 800;
     padding: 4px 10px;
     border-radius: 20px;
@@ -1025,7 +1025,7 @@ body {
 
 .qty-info small {
     color: var(--text-muted);
-    font-size: 0.84rem;
+    font-size: 0.82rem;
 }
 
 .qty-controls {
@@ -1041,7 +1041,7 @@ body {
     border: 1px solid var(--forest-dark);
     background-color: var(--white);
     color: var(--forest-dark);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
     cursor: pointer;
 }
@@ -1058,10 +1058,10 @@ body {
 .summary-sticky-card {
     background-color: var(--forest-dark);
     color: var(--white);
-    padding: 28px;
+    padding: 26px;
     border-radius: var(--radius);
     position: sticky;
-    top: 96px;
+    top: 100px;
 }
 
 .summary-sticky-card h3 {
@@ -1071,7 +1071,7 @@ body {
 
 .summary-items-list {
     list-style: none;
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     color: #DCE8E2;
     margin-bottom: 16px;
 }
@@ -1093,25 +1093,25 @@ body {
 }
 
 .form-field label {
-    font-size: 0.85rem;
+    font-size: 0.84rem;
     font-weight: 600;
     margin-bottom: 4px;
 }
 
 .form-field input,
 .form-field textarea {
-    padding: 11px 12px;
+    padding: 10px 12px;
     border-radius: 8px;
     border: 1px solid #B8C7C0;
     font-family: inherit;
-    font-size: 0.95rem;
+    font-size: 0.94rem;
 }
 
 .gdpr-check {
     display: flex;
     align-items: flex-start;
     gap: 8px;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     margin: 12px 0 16px;
 }
 
@@ -1119,28 +1119,26 @@ body {
     color: var(--gold-accent);
 }
 
-.btn-submit-gold {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 10px;
-    background-color: var(--gold-accent);
-    color: var(--forest-dark);
-    font-weight: 800;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
+.btn-submit-gold,
 .btn-submit-forest {
     width: 100%;
     padding: 14px;
     border: none;
     border-radius: 10px;
+    font-weight: 800;
+    font-size: 0.96rem;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.btn-submit-gold {
+    background-color: var(--gold-accent);
+    color: var(--forest-dark);
+}
+
+.btn-submit-forest {
     background-color: var(--forest-dark);
     color: var(--white);
-    font-weight: 800;
-    font-size: 1rem;
-    cursor: pointer;
 }
 
 .table-wrap {
@@ -1158,7 +1156,7 @@ body {
 
 .comp-table th,
 .comp-table td {
-    padding: 16px 18px;
+    padding: 15px 18px;
     border-bottom: 1px solid var(--border-soft);
     text-align: center;
 }
@@ -1176,7 +1174,7 @@ body {
 .comp-table td.yes {
     color: var(--forest-mid);
     font-weight: 900;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
 }
 
 .table-btn {
@@ -1219,7 +1217,7 @@ body {
     color: var(--text-dark);
     max-width: 460px;
     width: 100%;
-    padding: 34px 28px;
+    padding: 32px 28px;
     border-radius: var(--radius);
     position: relative;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
@@ -1241,28 +1239,28 @@ body {
 }
 
 .ty-check-circle {
-    width: 64px;
-    height: 64px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background-color: var(--forest-light);
     color: var(--forest-dark);
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 900;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .thank-you-card h3 {
-    font-size: 1.55rem;
+    font-size: 1.45rem;
     color: var(--forest-dark);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .thank-you-card p {
     color: var(--text-muted);
-    margin-bottom: 22px;
+    margin-bottom: 20px;
 }
 
 .whatsapp-float {
@@ -1271,8 +1269,8 @@ body {
     right: 24px;
     background-color: var(--whatsapp-green);
     color: #072112;
-    width: 60px;
-    height: 60px;
+    width: 58px;
+    height: 58px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1289,10 +1287,10 @@ body {
 
 .wa-tooltip {
     position: absolute;
-    right: 70px;
+    right: 68px;
     background-color: var(--forest-dark);
     color: var(--white);
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 700;
     padding: 6px 12px;
     border-radius: 8px;
@@ -1310,7 +1308,7 @@ body {
     background-color: #0D1F18;
     color: #C4D4CD;
     padding: 48px 0 24px;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
 }
 
 .footer-logo-text .logo-main {
@@ -1319,7 +1317,7 @@ body {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 28px;
     margin-bottom: 32px;
 }
@@ -1346,14 +1344,33 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 18px;
     text-align: center;
-    font-size: 0.84rem;
+    font-size: 0.82rem;
 }
 
-@media (max-width: 860px) {
-    .hero-aesthetic-title {
-        font-size: 2.5rem;
+/* ==========================================================================
+   11. RESPONSIVE (TABLETE SI TELEFOANE)
+   ========================================================================== */
+@media (max-width: 1080px) {
+    .packages-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
     }
-    .dynamic-config-layout {
+    .why-grid-5 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-aesthetic-title {
+        font-size: 2.3rem;
+    }
+    .packages-grid-4,
+    .steps-clean-grid,
+    .evidence-strip-forest,
+    .why-grid-5,
+    .coverage-cards-grid,
+    .reviews-grid-3,
+    .dynamic-config-layout,
+    .footer-grid {
         grid-template-columns: 1fr;
     }
     .kineto-highlight-light {
