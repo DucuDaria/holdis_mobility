@@ -1,5 +1,5 @@
 /* ==========================================================================
-   STYLE.CSS REPARAT - ALINIERE SIMETRICA & PROPORTII CURATE (HOLDIS MOBILITY)
+   STYLE.CSS COMPLET - BANNER TOP-ALIGNED & FOCUS DREAPTA PE MOBIL
    ========================================================================== */
 :root {
     --forest-dark: #142E24;
@@ -251,13 +251,14 @@ body {
 }
 
 /* ==========================================================================
-   3. HERO COVER (ALINIAT CORECT CU CONTAINERUL)
+   3. HERO COVER (ALINIAT SUS - TAIE DOAR DIN PARTEA DE JOS)
    ========================================================================== */
 .hero-cover {
     position: relative;
     min-height: 540px;
     background-size: cover;
-    background-position: center;
+    background-position: center top;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
 }
@@ -267,7 +268,7 @@ body {
     min-height: 540px;
     display: flex;
     align-items: center;
-    background: linear-gradient(90deg, rgba(16, 38, 30, 0.94) 0%, rgba(20, 46, 36, 0.82) 48%, rgba(20, 46, 36, 0.25) 100%);
+    background: linear-gradient(90deg, rgba(16, 38, 30, 0.94) 0%, rgba(20, 46, 36, 0.78) 45%, rgba(20, 46, 36, 0.15) 100%);
     padding: 72px 0;
 }
 
@@ -390,7 +391,7 @@ body {
 }
 
 /* ==========================================================================
-   5. PACHETE DE SPRIJIN (4 COLOANE FIXE PE DESKTOP - FARA CARDURI CAZUTE)
+   5. PACHETE DE SPRIJIN (4 COLOANE FIXE PE DESKTOP)
    ========================================================================== */
 .packages-grid-4 {
     display: grid;
@@ -536,7 +537,7 @@ body {
     background-color: var(--forest-mid);
 }
 
-/* CEI 3 PASI ALINIATI EXACT SUB PACHETE */
+/* CEI 3 PASI ALINIATI SUB PACHETE */
 .steps-clean-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1348,9 +1349,12 @@ body {
 }
 
 /* ==========================================================================
-   11. RESPONSIVE (TABLETE SI TELEFOANE)
+   11. RESPONSIVE (TABLETE SI TELEFOANE - FOCUS DREAPTA-SUS PE BANNER)
    ========================================================================== */
 @media (max-width: 1080px) {
+    .hero-cover {
+        background-position: 75% top;
+    }
     .packages-grid-4 {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1360,6 +1364,17 @@ body {
 }
 
 @media (max-width: 768px) {
+    .hero-cover {
+        /* Pe mobil afiseaza partea dreapta (unde e persoana) si pastreaza partea de sus */
+        background-position: 82% top;
+        min-height: 490px;
+    }
+    .hero-overlay {
+        min-height: 490px;
+        background: linear-gradient(180deg, rgba(16, 38, 30, 0.30) 0%, rgba(16, 38, 30, 0.85) 62%, rgba(16, 38, 30, 0.96) 100%);
+        align-items: flex-end;
+        padding: 40px 0;
+    }
     .hero-aesthetic-title {
         font-size: 2.3rem;
     }
