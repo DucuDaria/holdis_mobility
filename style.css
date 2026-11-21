@@ -1,5 +1,5 @@
 /* ==========================================================================
-   STYLE.CSS COMPLET - HOLDIS MOBILITY (HOME + PRODUSE INDIVIDUALE + RESPONSIVE)
+   STYLE.CSS COMPLET - HOLDIS MOBILITY (HOME + CARDURI COMPACTE PRODUSE)
    ========================================================================== */
 :root {
     --forest-dark: #142E24;
@@ -339,7 +339,7 @@ body {
    4. SECTIUNI GENERALE & TITLURI
    ========================================================================== */
 .section {
-    padding: 80px 0;
+    padding: 76px 0;
 }
 
 .section-cream {
@@ -869,7 +869,7 @@ body {
 }
 
 /* ==========================================================================
-   8. DE CE SA NE ALEGI? (DUPA ARIA DE ACOPERIRE - FOREST GREEN)
+   8. DE CE SA NE ALEGI? (FOREST GREEN)
    ========================================================================== */
 .kineto-highlight-forest {
     background: rgba(255, 255, 255, 0.08);
@@ -1017,10 +1017,10 @@ body {
 }
 
 /* ==========================================================================
-   10. PAGINA NOUA: PRODUSE INDIVIDUALE (PRODUSE.HTML)
+   10. PAGINA PRODUSE INDIVIDUALE (CARDURI COMPACTE PE 4 COLOANE + NOTA LUNGIMI)
    ========================================================================== */
 .products-hero {
-    padding: 68px 0 60px;
+    padding: 64px 0 56px;
     text-align: center;
 }
 
@@ -1039,7 +1039,7 @@ body {
 
 .products-page-lead {
     color: #D2E2DC;
-    font-size: 1.05rem;
+    font-size: 1.02rem;
     margin-bottom: 28px;
 }
 
@@ -1067,47 +1067,28 @@ body {
     color: var(--forest-dark);
 }
 
-.zone-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-    padding-bottom: 18px;
+.catalog-section-header {
+    margin-bottom: 34px;
+    padding-bottom: 14px;
     border-bottom: 2px solid var(--border-soft);
 }
 
-.zone-header h2 {
-    font-size: 2.15rem;
+.catalog-section-header h2 {
+    font-size: 2.05rem;
     color: var(--forest-dark);
     font-weight: 800;
 }
 
-.zone-header-light {
+.catalog-section-header-light {
     border-bottom-color: rgba(255, 255, 255, 0.16);
 }
 
-.zone-header-light h2 {
+.catalog-section-header-light h2 {
     color: var(--white);
 }
 
-.zone-badge {
-    background-color: var(--forest-dark);
-    color: var(--gold-accent);
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    padding: 6px 14px;
-    border-radius: 8px;
-}
-
-.zone-badge-gold {
-    background-color: var(--gold-accent);
-    color: var(--forest-dark);
-}
-
 .category-block {
-    margin-bottom: 54px;
+    margin-bottom: 48px;
 }
 
 .category-block:last-child {
@@ -1115,43 +1096,65 @@ body {
 }
 
 .category-title {
-    font-size: 1.45rem;
+    font-size: 1.35rem;
     font-weight: 800;
     color: var(--forest-mid);
-    margin-bottom: 22px;
-    padding-left: 14px;
+    margin-bottom: 16px;
+    padding-left: 12px;
     border-left: 4px solid var(--gold-accent);
 }
 
-.category-title-light {
-    color: #F3DFBA;
+/* Nota vizibila despre lungimi orientative la Maini curente & Balustrade */
+.length-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--white);
+    border: 1px solid rgba(200, 157, 84, 0.55);
+    border-left: 4px solid var(--gold-accent);
+    color: var(--forest-dark);
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 14px rgba(20, 46, 36, 0.05);
 }
 
+.length-note-icon {
+    color: var(--gold-accent);
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+/* Grid compact cu 4 carduri pe rand pe desktop */
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
 }
 
 .prod-card {
     background-color: var(--white);
-    border-radius: var(--radius);
+    border-radius: 13px;
     border: 1px solid var(--border-soft);
     overflow: hidden;
-    box-shadow: var(--shadow-soft);
+    box-shadow: 0 6px 20px rgba(20, 46, 36, 0.06);
     display: flex;
     flex-direction: column;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .prod-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 36px rgba(20, 46, 36, 0.12);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(20, 46, 36, 0.12);
 }
 
 .prod-img-box {
     position: relative;
-    aspect-ratio: 4 / 3;
+    height: 155px;
     background-color: var(--forest-light);
     overflow: hidden;
     display: flex;
@@ -1168,13 +1171,13 @@ body {
 
 .prod-tag {
     position: absolute;
-    top: 12px;
-    left: 12px;
+    top: 8px;
+    left: 8px;
     background-color: rgba(20, 46, 36, 0.88);
     color: var(--white);
-    font-size: 0.74rem;
+    font-size: 0.68rem;
     font-weight: 700;
-    padding: 4px 10px;
+    padding: 3px 8px;
     border-radius: 6px;
 }
 
@@ -1184,30 +1187,30 @@ body {
 }
 
 .prod-body {
-    padding: 20px;
+    padding: 14px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     flex-grow: 1;
-    gap: 18px;
+    gap: 12px;
 }
 
 .prod-body h4 {
-    font-size: 1.06rem;
+    font-size: 0.93rem;
     font-weight: 700;
     color: var(--forest-dark);
-    line-height: 1.38;
+    line-height: 1.35;
 }
 
 .btn-prod-request {
     width: 100%;
-    padding: 12px 14px;
-    border-radius: 10px;
+    padding: 9px 12px;
+    border-radius: 8px;
     border: none;
     background-color: var(--forest-dark);
     color: var(--white);
     font-family: inherit;
-    font-size: 0.92rem;
+    font-size: 0.84rem;
     font-weight: 700;
     cursor: pointer;
     transition: background 0.2s ease;
@@ -1218,11 +1221,11 @@ body {
 }
 
 .products-bottom-cta {
-    margin-top: 56px;
+    margin-top: 52px;
     background-color: var(--white);
     border: 2px solid var(--forest-dark);
     border-radius: var(--radius);
-    padding: 32px;
+    padding: 28px 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1233,13 +1236,13 @@ body {
 
 .products-bottom-cta h3 {
     color: var(--forest-dark);
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     margin-bottom: 4px;
 }
 
 .products-bottom-cta p {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 0.94rem;
 }
 
 .pbc-actions {
@@ -1511,7 +1514,7 @@ body {
 /* ==========================================================================
    12. RESPONSIVE (TABLETE SI TELEFOANE)
    ========================================================================== */
-@media (max-width: 1080px) {
+@media (max-width: 1120px) {
     .hero-cover {
         background-position: 75% top;
     }
@@ -1522,7 +1525,7 @@ body {
         grid-template-columns: repeat(3, 1fr);
     }
     .products-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -1544,7 +1547,7 @@ body {
         font-size: 2.2rem;
     }
 
-    /* POZE PACHETE PE MOBIL: MAI MARI, MAI LUNGI SI VIZIBILE INTEGRAL FARA TAIERE */
+    /* POZE PACHETE PE MOBIL: MARI SI VIZIBILE INTEGRAL FARA TAIERE */
     .pkg-img-box {
         height: auto;
         min-height: 280px;
@@ -1563,14 +1566,17 @@ body {
         min-height: 220px;
     }
 
-    /* POZE PRODUSE INDIVIDUALE PE MOBIL: FARA TAIERE */
+    /* GRID PRODUSE PE TELEFOANE LATE: 2 COLOANE COMPACTE */
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
     .prod-img-box {
-        aspect-ratio: auto;
-        min-height: 240px;
+        height: 150px;
     }
     .prod-img-box img {
         width: 100%;
-        height: auto;
+        height: 100%;
         object-fit: contain;
     }
 
@@ -1584,7 +1590,6 @@ body {
     .why-grid-5,
     .coverage-cards-grid,
     .reviews-grid-3,
-    .products-grid,
     .footer-grid {
         grid-template-columns: 1fr;
     }
@@ -1592,5 +1597,19 @@ body {
     .kineto-highlight-forest {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    .prod-img-box {
+        height: auto;
+        min-height: 190px;
+    }
+    .prod-img-box img {
+        height: auto;
+        object-fit: contain;
     }
 }
