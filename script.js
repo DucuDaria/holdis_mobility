@@ -1,7 +1,8 @@
 // ==========================================================================
-// CONFIGURARE DATE CONTACT (Schimba cu adresa ta reala de email)
+// CONFIGURARE DATE CONTACT OFICIALE HOLDIS MOBILITY S.R.L.
 // ==========================================================================
-const ADMIN_EMAIL = "contact@holdismobility.ro";
+const ADMIN_EMAIL = "holdismobility@gmail.com";
+const ADMIN_WHATSAPP = "40787665347";
 
 // Seteaza anul curent in footer pe toate paginile
 document.querySelectorAll(".currentYear").forEach(el => {
@@ -88,6 +89,13 @@ Un client a solicitat „${optiune}” pe site-ul HOLDIS MOBILITY:
 • Telefon: ${telefon}
 • Zona: ${zona}
 `;
+
+        // Actualizeaza butonul WhatsApp din fereastra de confirmare cu mesajul precompletat
+        const waBtn = document.getElementById("tyWhatsAppBtn");
+        if (waBtn) {
+            const waText = `Bună ziua! Doresc solicitarea: ${optiune}. Nume: ${nume}, Telefon: ${telefon}, Zona: ${zona}.`;
+            waBtn.href = `[https://wa.me/$](https://wa.me/$){ADMIN_WHATSAPP}?text=${encodeURIComponent(waText)}`;
+        }
 
         showThankYouModal();
 

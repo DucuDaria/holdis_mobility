@@ -1,5 +1,5 @@
 /* ==========================================================================
-   STYLE.CSS COMPLET - HOLDIS MOBILITY (HOME + CARDURI COMPACTE PRODUSE)
+   STYLE.CSS COMPLET - HOLDIS MOBILITY (POZE PRODUSE FARA CROP + DATE OFICIALE)
    ========================================================================== */
 :root {
     --forest-dark: #142E24;
@@ -1017,7 +1017,7 @@ body {
 }
 
 /* ==========================================================================
-   10. PAGINA PRODUSE INDIVIDUALE (CARDURI COMPACTE PE 4 COLOANE + NOTA LUNGIMI)
+   10. PAGINA PRODUSE INDIVIDUALE (CARDURI COMPACTE + POZE 100% FARA CROP)
    ========================================================================== */
 .products-hero {
     padding: 64px 0 56px;
@@ -1104,7 +1104,6 @@ body {
     border-left: 4px solid var(--gold-accent);
 }
 
-/* Nota vizibila despre lungimi orientative la Maini curente & Balustrade */
 .length-note {
     display: inline-flex;
     align-items: center;
@@ -1152,10 +1151,13 @@ body {
     box-shadow: 0 12px 26px rgba(20, 46, 36, 0.12);
 }
 
+/* POZE PRODUSE: 100% INTEGRALE FARA DECUPARE (OBJECT-FIT: CONTAIN + FUNDAL CURAT) */
 .prod-img-box {
     position: relative;
-    height: 155px;
-    background-color: var(--forest-light);
+    height: 185px;
+    padding: 12px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid var(--border-soft);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -1165,7 +1167,10 @@ body {
 .prod-img-box img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center;
     display: block;
 }
 
@@ -1179,6 +1184,7 @@ body {
     font-weight: 700;
     padding: 3px 8px;
     border-radius: 6px;
+    z-index: 2;
 }
 
 .prod-tag-service {
@@ -1312,6 +1318,35 @@ body {
     margin-top: 24px;
 }
 
+.legal-block h2 {
+    color: var(--forest-dark);
+    margin-bottom: 10px;
+}
+
+.legal-block p {
+    margin-bottom: 12px;
+    color: var(--text-muted);
+}
+
+.legal-block a {
+    color: var(--forest-dark);
+}
+
+.legal-detail-list {
+    list-style: none;
+    background-color: var(--cream-bg);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0 16px;
+}
+
+.legal-detail-list li {
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
 .form-field {
     display: flex;
     flex-direction: column;
@@ -1427,6 +1462,12 @@ body {
     margin-bottom: 20px;
 }
 
+.ty-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .whatsapp-float {
     position: fixed;
     bottom: 24px;
@@ -1477,6 +1518,17 @@ body {
 
 .footer-logo-text .logo-main {
     color: var(--white);
+}
+
+.footer-contact-line {
+    margin-top: 12px;
+    line-height: 1.7;
+}
+
+.footer-contact-line a {
+    color: var(--gold-accent);
+    text-decoration: none;
+    font-weight: 600;
 }
 
 .footer-grid {
@@ -1566,13 +1618,15 @@ body {
         min-height: 220px;
     }
 
-    /* GRID PRODUSE PE TELEFOANE LATE: 2 COLOANE COMPACTE */
+    /* POZE PRODUSE PE TELEFOANE LATE: 2 COLOANE COMPACTE, 100% FARA CROP */
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 14px;
     }
     .prod-img-box {
-        height: 150px;
+        height: 165px;
+        padding: 10px;
+        background-color: #FFFFFF;
     }
     .prod-img-box img {
         width: 100%;
@@ -1605,11 +1659,13 @@ body {
         grid-template-columns: 1fr;
     }
     .prod-img-box {
-        height: auto;
-        min-height: 190px;
+        height: 210px;
+        padding: 12px;
+        background-color: #FFFFFF;
     }
     .prod-img-box img {
-        height: auto;
+        width: 100%;
+        height: 100%;
         object-fit: contain;
     }
 }
