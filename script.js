@@ -4,9 +4,8 @@
 const ADMIN_EMAIL = "holdismobility@gmail.com";
 const ADMIN_WHATSAPP = "40787665347";
 
-// Endpoint configurabil pentru trimitere automata in fundal (fara mailto:)
-// Foloseste FormSubmit AJAX direct catre holdismobility@gmail.com.
-// Daca doresti alt serviciu (ex: Formspree / Web3Forms), inlocuieste doar URL-ul de mai jos.
+// Endpoint FormSubmit AJAX direct catre holdismobility@gmail.com
+// (Daca preferi Web3Forms sau Formspree, inlocuieste URL-ul de mai jos)
 const EMAIL_ENDPOINT = `https://formsubmit.co/ajax/${ADMIN_EMAIL}`;
 
 let waRevealTimer = null;
@@ -63,7 +62,7 @@ window.addEventListener("click", function (event) {
     }
 });
 
-// 3. Afisare eroare clara in formular (daca trimiterea automata esueaza)
+// 3. Afisare eroare clara in formular
 function getOrCreateErrorBox() {
     let errorBox = document.getElementById("formErrorMsg");
     if (!errorBox) {
@@ -158,12 +157,21 @@ function closeThankYouModal() {
     }
 }
 
-// 5. Trimitere automata pe email prin fetch (fara mailto:)
+// 5. Trimitere automata pe email prin FormData (fara blocaje CORS si fara mailto:)
 const quickContactForm = document.getElementById("quickContactForm");
 if (quickContactForm) {
     quickContactForm.addEventListener("submit", async function (e) {
         e.preventDefault();
         hideFormError();
+
+        // Verificare daca pagina este deschisa direct din folder (file://)
+        if (window.location.protocol === "file:") {
+            showFormError(
+                `Trimiterea automată nu funcționează când pagina este deschisă local din folder (<code>file://</code>). ` +
+                `Te rog încarcă fișierele pe <strong>GitHub Pages</strong> și testează pe link-ul <code>https://...</code>.`
+            );
+            return;
+        }
 
         const submitBtn = document.getElementById("quickSubmitBtn") || quickContactForm.querySelector('button[type="submit"]');
         const originalBtnText = submitBtn ? submitBtn.textContent : "Trimite solicitarea";
@@ -173,39 +181,47 @@ if (quickContactForm) {
         const telefon = document.getElementById("qTelefon").value.trim();
         const zona = document.getElementById("qZona").value.trim();
 
-        // Pregatim link-ul optional de WhatsApp (fara a deschide sau obliga utilizatorul)
         const waText = `Bună ziua! Am trimis o solicitare pentru: ${optiune}. Nume: ${nume}, Telefon: ${telefon}, Zona: ${zona}.`;
         const waUrl = `https://wa.me/${ADMIN_WHATSAPP}?text=${encodeURIComponent(waText)}`;
 
-        // Stare de trimitere
         if (submitBtn) {
             submitBtn.disabled = true;
             submitBtn.textContent = "Se trimite solicitarea...";
         }
 
         try {
+            const formData = new FormData();
+            formData.append("_subject", `Solicitare HOLDIS MOBILITY: ${optiune} - ${nume} (${telefon})`);
+            formData.append("_template", "table");
+            formData.append("_captcha", "false");
+            formData.append("Produs_sau_Serviciu", optiune);
+            formData.append("Nume_Client", nume);
+            formData.append("Telefon", telefon);
+            formData.append("Zona", zona);
+            formData.append("Pagina_Sursa", window.location.href);
+
             const response = await fetch(EMAIL_ENDPOINT, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json",
                     "Accept": "application/json"
                 },
-                body: JSON.stringify({
-                    _subject: `Solicitare HOLDIS MOBILITY: ${optiune} - ${nume} (${telefon})`,
-                    _template: "table",
-                    _captcha: "false",
-                    Produs_sau_Serviciu: optiune,
-                    Nume_Client: nume,
-                    Telefon: telefon,
-                    Zona: zona,
-                    Pagina_Sursa: window.location.href
-                })
+                body: formData
             });
 
             const result = await response.json().catch(() => ({}));
+            const apiMsg = (result && result.message) ? String(result.message) : "";
+
+            // Daca FormSubmit cere activarea unica pe email la prima trimitere
+            if (/activat/i.test(apiMsg)) {
+                showFormError(
+                    `<strong>Activare unică necesară:</strong> FormSubmit a trimis un e-mail de confirmare către <strong>${ADMIN_EMAIL}</strong>. ` +
+                    `Intră pe Gmail (verifică și folderul <strong>Spam</strong>) și apasă butonul <em>Activate Form</em>, apoi retrimite solicitarea.`
+                );
+                return;
+            }
 
             if (!response.ok || result.success === false || result.success === "false") {
-                throw new Error(result.message || "Serviciul de e-mail nu a confirmat trimiterea.");
+                throw new Error(apiMsg || `Cod răspuns server: ${response.status}`);
             }
 
             // Succes: resetam formularul si afisam confirmarea in mijlocul ecranului, apoi optiunea de WhatsApp
@@ -214,7 +230,8 @@ if (quickContactForm) {
 
         } catch (error) {
             showFormError(
-                `Nu am putut trimite automat solicitarea în acest moment. Vă rugăm să încercați din nou sau să ne contactați direct la ` +
+                `Nu am putut trimite automat solicitarea în acest moment (${error.message || "eroare conexiune"}). ` +
+                `Vă rugăm să încercați din nou sau să ne contactați direct la ` +
                 `<a href="tel:+${ADMIN_WHATSAPP}">0787 665 347</a> ori pe ` +
                 `<a href="${waUrl}" target="_blank" rel="noopener">WhatsApp</a>.`
             );
