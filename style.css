@@ -1,5 +1,5 @@
 /* ==========================================================================
-   STYLE.CSS COMPLET - HOLDIS MOBILITY (POZE PRODUSE FARA CROP + DATE OFICIALE)
+   STYLE.CSS COMPLET - HOLDIS MOBILITY
    ========================================================================== */
 :root {
     --forest-dark: #142E24;
@@ -241,6 +241,11 @@ body {
     text-decoration: none;
     padding: 12px;
     border-radius: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-whatsapp-full:hover {
+    background-color: #20bd5a;
 }
 
 .drawer-mail {
@@ -544,7 +549,6 @@ body {
     background-color: var(--forest-mid);
 }
 
-/* Buton WhatsApp vizibil sub pachete */
 .packages-wa-wrap {
     display: flex;
     justify-content: center;
@@ -577,7 +581,6 @@ body {
     font-size: 0.94rem;
 }
 
-/* CEI 3 PASI ALINIATI SUB PACHETE */
 .steps-clean-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1128,7 +1131,6 @@ body {
     flex-shrink: 0;
 }
 
-/* Grid compact cu 4 carduri pe rand pe desktop */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1259,7 +1261,7 @@ body {
 }
 
 /* ==========================================================================
-   11. TABEL COMPARATIV, LEGAL, POP-UP, WHATSAPP & FOOTER
+   11. TABEL COMPARATIV, LEGAL, POP-UP, STARE TRIMITERE, WHATSAPP & FOOTER
    ========================================================================== */
 .table-wrap {
     overflow-x: auto;
@@ -1368,6 +1370,23 @@ body {
     font-size: 0.94rem;
 }
 
+.form-error-msg {
+    background-color: #FDF2F2;
+    border: 1px solid #F5C2C7;
+    color: #842029;
+    padding: 11px 14px;
+    border-radius: 8px;
+    font-size: 0.86rem;
+    line-height: 1.45;
+    margin-bottom: 14px;
+}
+
+.form-error-msg a {
+    color: #842029;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
 .btn-submit-forest {
     width: 100%;
     padding: 14px;
@@ -1379,10 +1398,16 @@ body {
     cursor: pointer;
     background-color: var(--forest-dark);
     color: var(--white);
+    transition: background-color 0.2s ease, opacity 0.2s ease;
 }
 
-.btn-submit-forest:hover {
+.btn-submit-forest:hover:not(:disabled) {
     background-color: var(--forest-mid);
+}
+
+.btn-submit-forest:disabled {
+    opacity: 0.7;
+    cursor: wait;
 }
 
 .modal-backdrop {
@@ -1459,7 +1484,29 @@ body {
 
 .thank-you-card p {
     color: var(--text-muted);
-    margin-bottom: 20px;
+    margin-bottom: 18px;
+}
+
+/* Bloc WhatsApp optional - apare dupa mesajul de confirmare */
+.ty-whatsapp-wrap {
+    margin-top: 4px;
+    margin-bottom: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-soft);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.ty-whatsapp-wrap.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.ty-wa-note {
+    font-size: 0.84rem !important;
+    color: var(--text-muted) !important;
+    margin-bottom: 10px !important;
 }
 
 .ty-actions {
@@ -1599,7 +1646,6 @@ body {
         font-size: 2.2rem;
     }
 
-    /* POZE PACHETE PE MOBIL: MARI SI VIZIBILE INTEGRAL FARA TAIERE */
     .pkg-img-box {
         height: auto;
         min-height: 280px;
@@ -1618,7 +1664,6 @@ body {
         min-height: 220px;
     }
 
-    /* POZE PRODUSE PE TELEFOANE LATE: 2 COLOANE COMPACTE, 100% FARA CROP */
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 14px;
